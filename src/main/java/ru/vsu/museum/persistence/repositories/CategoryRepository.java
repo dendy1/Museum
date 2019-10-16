@@ -6,6 +6,13 @@ import ru.vsu.museum.persistence.Repository;
 import java.util.ArrayList;
 
 public class CategoryRepository implements Repository<Category> {
+    private static CategoryRepository instance;
+    public static CategoryRepository getInstance() {
+        if (instance == null) {
+            instance = new CategoryRepository();
+        }
+        return instance;
+    }
     private ArrayList<Category> categories;
 
     public CategoryRepository() {

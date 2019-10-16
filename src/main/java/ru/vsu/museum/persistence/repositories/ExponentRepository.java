@@ -7,13 +7,20 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class ExponentRepository implements Repository<Exponent> {
+    private static ExponentRepository instance;
+    public static ExponentRepository getInstance() {
+        if (instance == null) {
+            instance = new ExponentRepository();
+        }
+        return instance;
+    }
     private ArrayList<Exponent> exponents;
 
     public ExponentRepository() {
         exponents = new ArrayList<Exponent>();
         for (long i = 1; i < 10; i++)
         {
-            exponents.add(new Exponent(i, "Exponent " + i, "Description for exponent " + i, 1, new Date(), i % 3, i % 5));
+            exponents.add(new Exponent(i, "Exponent " + i, "Description for exponent " + i, new Date(), i % 3, i % 5));
         }
     }
 

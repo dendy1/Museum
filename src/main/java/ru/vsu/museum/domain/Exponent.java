@@ -6,16 +6,14 @@ public class Exponent {
     private Long id;
     private String name;
     private String description;
-    private Integer count;
     private Date createDate;
     private Long categoryId;
     private Long locationId;
 
-    public Exponent(Long id, String name, String description, Integer count, Date createDate, Long categoryId, Long locationId) {
+    public Exponent(Long id, String name, String description, Date createDate, Long categoryId, Long locationId) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.count = count;
         this.createDate = createDate;
         this.categoryId = categoryId;
         this.locationId = locationId;
@@ -46,14 +44,6 @@ public class Exponent {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public Integer getCount() {
-        return count;
-    }
-
-    public void setCount(Integer count) {
-        this.count = count;
     }
 
     public Date getCreateDate() {

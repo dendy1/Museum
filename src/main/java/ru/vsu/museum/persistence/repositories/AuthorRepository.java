@@ -6,7 +6,16 @@ import ru.vsu.museum.persistence.Repository;
 import java.util.ArrayList;
 
 public class AuthorRepository implements Repository<Author> {
+    private static AuthorRepository instance;
+    public static AuthorRepository getInstance() {
+        if (instance == null) {
+            instance = new AuthorRepository();
+        }
+        return instance;
+    }
+
     private ArrayList<Author> authors;
+
 
     public AuthorRepository() {
         authors = new ArrayList<Author>();

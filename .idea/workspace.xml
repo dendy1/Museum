@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5190b7f0-5f24-4b88-b358-aa2a929e17e4" name="Default Changelist" comment="" />
+    <list default="true" id="5190b7f0-5f24-4b88-b358-aa2a929e17e4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/domain/Exponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/domain/Exponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/domain/ExponentAuthor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/domain/ExponentAuthor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/domain/ExponentOnExhibition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/domain/ExponentOnExhibition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/UnitOfWork.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/AuthorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/AuthorRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/CategoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/CategoryRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/ExhibitionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/ExhibitionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/ExponentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/ExponentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/LocationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/LocationRepository.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +39,9 @@
     </option>
   </component>
   <component name="ProjectId" id="1RbopIVlK2dlGANUs7J1dryIlbb" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -35,7 +50,13 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="ru.vsu.museum.view" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -48,6 +69,26 @@
         </RuleState>
       </list>
     </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ru.vsu.museum.Main" />
+      <module name="Museum" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.vsu.museum.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -67,6 +108,9 @@
       <workItem from="1571139406299" duration="2239000" />
       <workItem from="1571159341354" duration="914000" />
       <workItem from="1571160279521" duration="5420000" />
+      <workItem from="1571215176351" duration="1126000" />
+      <workItem from="1571235543220" duration="4502000" />
+      <workItem from="1571240538976" duration="8224000" />
     </task>
     <servers />
   </component>

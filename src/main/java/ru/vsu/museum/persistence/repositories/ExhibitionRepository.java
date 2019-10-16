@@ -7,6 +7,13 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class ExhibitionRepository implements Repository<Exhibition> {
+    private static ExhibitionRepository instance;
+    public static ExhibitionRepository getInstance() {
+        if (instance == null) {
+            instance = new ExhibitionRepository();
+        }
+        return instance;
+    }
     private ArrayList<Exhibition> exhibitions;
 
     public ExhibitionRepository() {

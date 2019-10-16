@@ -6,6 +6,13 @@ import ru.vsu.museum.persistence.Repository;
 import java.util.ArrayList;
 
 public class LocationRepository implements Repository<Location> {
+    private static LocationRepository instance;
+    public static LocationRepository getInstance() {
+        if (instance == null) {
+            instance = new LocationRepository();
+        }
+        return instance;
+    }
     private ArrayList<Location> locations;
 
     public LocationRepository() {
