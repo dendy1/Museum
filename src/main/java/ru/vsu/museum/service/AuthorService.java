@@ -21,6 +21,14 @@ public class AuthorService {
     public Author getById(Long id) { return authorRepository.getById(id); }
 
     public void deleteById(Long id) {
+        for (ExponentAuthor exponentAuthor : exponentAuthorRepository.getAll()) {
+            if (exponentAuthor.getAuthorId().equals(id))
+            {
+                exponentAuthorRepository.delete(exponentAuthor.getId());
+                break;
+            }
+        }
+
         authorRepository.delete(id);
     }
 

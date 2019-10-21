@@ -2,18 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5190b7f0-5f24-4b88-b358-aa2a929e17e4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/domain/Exponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/domain/Exponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/domain/ExponentAuthor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/domain/ExponentAuthor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/domain/ExponentOnExhibition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/domain/ExponentOnExhibition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/UnitOfWork.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/AuthorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/AuthorRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/CategoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/CategoryRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/ExhibitionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/ExhibitionRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/ExponentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/ExponentRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/LocationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/LocationRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/Instance.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/service/AuthorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/service/AuthorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/service/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/service/CategoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/service/ExhibitionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/service/ExhibitionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/service/ExponentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/service/ExponentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/service/LocationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/service/LocationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/view/ExhibitionView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/view/ExhibitionView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/view/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/view/MainMenu.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -110,7 +107,9 @@
       <workItem from="1571160279521" duration="5420000" />
       <workItem from="1571215176351" duration="1126000" />
       <workItem from="1571235543220" duration="4502000" />
-      <workItem from="1571240538976" duration="8224000" />
+      <workItem from="1571240538976" duration="8381000" />
+      <workItem from="1571581858258" duration="1992000" />
+      <workItem from="1571653913972" duration="2216000" />
     </task>
     <servers />
   </component>

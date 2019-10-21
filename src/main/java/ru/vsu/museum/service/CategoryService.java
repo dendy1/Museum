@@ -20,6 +20,13 @@ public class CategoryService {
     }
 
     public void deleteById(long id) {
+        for (Exponent exponent : exponentRepository.getAll()) {
+            if (exponent.getCategoryId().equals(id)) {
+                Exponent newExponent = exponent;
+                newExponent.setCategoryId(null);
+                exponentRepository.update(newExponent);
+            }
+        }
         categoryRepository.delete(id);
     }
 

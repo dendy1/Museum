@@ -23,6 +23,13 @@ public class ExhibitionService {
     }
 
     public void deleteById(long id) {
+        for (ExponentOnExhibition exponentOnExhibition : exponentOnExhibitionRepository.getAll()) {
+            if (exponentOnExhibition.getExhibitionId().equals(id))
+            {
+                exponentOnExhibitionRepository.delete(exponentOnExhibition.getId());
+                break;
+            }
+        }
         exhibitionRepository.delete(id);
     }
 

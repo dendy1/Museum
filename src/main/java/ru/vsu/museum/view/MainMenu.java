@@ -14,14 +14,12 @@ public class MainMenu {
     public void show() {
         while (true) {
             System.out.println("====Menu====");
-
             System.out.println("1. Меню категорий (Введите 1)");
             System.out.println("2. Меню экспонатов (Введите 2)");
             System.out.println("3. Меню выставок (Введите 3)");
             System.out.println("4. Меню авторов (Введите 4)");
             System.out.println("5. Меню местоположений (Введите 5)");
-            System.out.println("6. Выход (Введите 10)");
-
+            System.out.println("10. Выход (Введите 10)");
             System.out.print("Ваш выбор: ");
 
             int menuItem = scanner.nextInt();

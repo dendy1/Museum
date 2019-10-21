@@ -4,6 +4,7 @@ import ru.vsu.museum.domain.Exhibition;
 import ru.vsu.museum.domain.Exponent;
 import ru.vsu.museum.persistence.repositories.ExponentRepository;
 import ru.vsu.museum.service.ExhibitionService;
+import ru.vsu.museum.service.ExponentService;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -13,7 +14,7 @@ import java.util.Scanner;
 public class ExhibitionView {
     private Scanner scanner = new Scanner(System.in);
     private ExhibitionService exhibitionService = new ExhibitionService();
-    private ExponentRepository exponentRepository = new ExponentRepository();
+    private ExponentService exponentService = new ExponentService();
 
     public void show() {
         while (true) {
@@ -108,7 +109,7 @@ public class ExhibitionView {
     }
 
     private void printAllExponents() {
-        for (Exponent exponent: exponentRepository.getAll()) {
+        for (Exponent exponent: exponentService.getAll()) {
             System.out.println(exponent.getId() + ". " + exponent.getName());
         }
     }
