@@ -15,6 +15,12 @@ public class ExponentOnExhibitionRepository implements Repository<ExponentOnExhi
     }
     private ArrayList<ExponentOnExhibition> exponentOnExhibitions = new ArrayList<ExponentOnExhibition>();
 
+    public ExponentOnExhibitionRepository() {
+        for (long i = 1; i < 10; i++) {
+            exponentOnExhibitions.add(new ExponentOnExhibition((long)(exponentOnExhibitions.size() + 1), i, i % 4));
+        }
+    }
+
     public ArrayList<ExponentOnExhibition> getAll() {
         return exponentOnExhibitions;
     }

@@ -18,7 +18,7 @@ public class ExhibitionRepository implements Repository<Exhibition> {
 
     public ExhibitionRepository() {
         exhibitions = new ArrayList<Exhibition>();
-        for (long i = 1; i < 10; i++)
+        for (long i = 1; i < 4; i++)
         {
             exhibitions.add(new Exhibition(i, new Date(), new Date(), "Exhibiton " + i, "Russia", "Valeriy Albertovich"));
         }
