@@ -2,8 +2,8 @@ package ru.vsu.museum.service;
 
 import ru.vsu.museum.domain.Category;
 import ru.vsu.museum.domain.Exponent;
-import ru.vsu.museum.persistence.repositories.CategoryRepository;
-import ru.vsu.museum.persistence.repositories.ExponentRepository;
+import ru.vsu.museum.persistence.repositories.inMemory.CategoryRepository;
+import ru.vsu.museum.persistence.repositories.inMemory.ExponentRepository;
 
 import java.util.ArrayList;
 
@@ -22,9 +22,8 @@ public class CategoryService {
     public void deleteById(long id) {
         for (Exponent exponent : exponentRepository.getAll()) {
             if (exponent.getCategoryId().equals(id)) {
-                Exponent newExponent = exponent;
-                newExponent.setCategoryId(null);
-                exponentRepository.update(newExponent);
+                exponent.setCategoryId(null);
+                exponentRepository.update(exponent);
             }
         }
         categoryRepository.delete(id);

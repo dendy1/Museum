@@ -3,9 +3,22 @@
   <component name="ChangeListManager">
     <list default="true" id="5190b7f0-5f24-4b88-b358-aa2a929e17e4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/ExhibitionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/ExhibitionRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/ExponentAuthorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/ExponentAuthorRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/ExponentOnExhibitionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/ExponentOnExhibitionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/AuthorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/inMemory/AuthorRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/CategoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/inMemory/CategoryRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/ExhibitionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/inMemory/ExhibitionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/ExponentAuthorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/inMemory/ExponentAuthorRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/ExponentOnExhibitionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/inMemory/ExponentOnExhibitionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/ExponentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/inMemory/ExponentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/LocationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/inMemory/LocationRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/service/AuthorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/service/AuthorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/service/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/service/CategoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/service/ExhibitionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/service/ExhibitionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/service/ExponentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/service/ExponentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/service/LocationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/service/LocationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/view/CategoryView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/view/CategoryView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/view/ExhibitionView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/view/ExhibitionView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/view/ExponentView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/view/ExponentView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/view/LocationView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/view/LocationView.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,6 +29,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -38,12 +52,13 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="full.screen.before.presentation.mode" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/h2-1.4.200.jar!/" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -105,6 +120,10 @@
       <workItem from="1571240538976" duration="8381000" />
       <workItem from="1571581858258" duration="1992000" />
       <workItem from="1571653913972" duration="4319000" />
+      <workItem from="1571735335074" duration="10129000" />
+      <workItem from="1572969325360" duration="49000" />
+      <workItem from="1572969544944" duration="3508000" />
+      <workItem from="1573573935101" duration="6055000" />
     </task>
     <servers />
   </component>

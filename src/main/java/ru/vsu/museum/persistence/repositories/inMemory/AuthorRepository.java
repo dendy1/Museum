@@ -1,4 +1,4 @@
-package ru.vsu.museum.persistence.repositories;
+package ru.vsu.museum.persistence.repositories.inMemory;
 
 import ru.vsu.museum.domain.Author;
 import ru.vsu.museum.persistence.Repository;
@@ -19,8 +19,8 @@ public class AuthorRepository implements Repository<Author> {
 
     public AuthorRepository() {
         authors = new ArrayList<Author>();
-        for (long i = 1; i < 5; i++) {
-            authors.add(new Author(i, "Author name" + i));
+        for (long i = 0; i < 5; i++) {
+            authors.add(new Author(i, "Author " + i));
         }
     }
 

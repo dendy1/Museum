@@ -2,7 +2,6 @@ package ru.vsu.museum.view;
 
 import ru.vsu.museum.domain.Exhibition;
 import ru.vsu.museum.domain.Exponent;
-import ru.vsu.museum.persistence.repositories.ExponentRepository;
 import ru.vsu.museum.service.ExhibitionService;
 import ru.vsu.museum.service.ExponentService;
 

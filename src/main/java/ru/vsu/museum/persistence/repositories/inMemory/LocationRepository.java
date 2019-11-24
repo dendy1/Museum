@@ -1,4 +1,4 @@
-package ru.vsu.museum.persistence.repositories;
+package ru.vsu.museum.persistence.repositories.inMemory;
 
 import ru.vsu.museum.domain.Location;
 import ru.vsu.museum.persistence.Repository;
@@ -17,11 +17,10 @@ public class LocationRepository implements Repository<Location> {
 
     public LocationRepository() {
         locations = new ArrayList<Location>();
-
-        locations.add(new Location(1L, "Location 1", "Address for location 1", "Хранилище"));
-        locations.add(new Location(2L, "Location 2", "Address for location 2", "Хранилище"));
-        locations.add(new Location(3L, "Зал музея 1", "Зал №1", "Зал"));
-        locations.add(new Location(4L, "Зал музея 2", "Зал №2", "Зал"));
+        locations.add(new Location(0L, "Location 1", "Address for location 1", "Хранилище"));
+        locations.add(new Location(1L, "Location 2", "Address for location 2", "Хранилище"));
+        locations.add(new Location(2L, "Зал музея 1", "Зал №1", "Зал"));
+        locations.add(new Location(3L, "Зал музея 2", "Зал №2", "Зал"));
     }
 
     public ArrayList<Location> getAll() {
@@ -52,7 +51,7 @@ public class LocationRepository implements Repository<Location> {
     public void update(Location item) {
         for (int i = 0; i < locations.size(); i++) {
             if (locations.get(i).getId().equals(item.getId())) {
-                locations.remove(i);
+                locations.set(i, item);
                 return;
             }
         }

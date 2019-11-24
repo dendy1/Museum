@@ -1,4 +1,4 @@
-package ru.vsu.museum.persistence.repositories;
+package ru.vsu.museum.persistence.repositories.inMemory;
 
 import ru.vsu.museum.domain.Category;
 import ru.vsu.museum.persistence.Repository;
@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 public class CategoryRepository implements Repository<Category> {
     private static CategoryRepository instance;
+
     public static CategoryRepository getInstance() {
         if (instance == null) {
             instance = new CategoryRepository();
@@ -17,9 +18,9 @@ public class CategoryRepository implements Repository<Category> {
 
     public CategoryRepository() {
         categories = new ArrayList<Category>();
-        for (long i = 1; i < 3; i++)
+        for (long i = 0; i < 2; i++)
         {
-            categories.add(new Category(i, "Category" + i, "Description for category " + i));
+            categories.add(new Category(i, "Category " + i, "Description for category " + i));
         }
     }
 

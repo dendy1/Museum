@@ -1,10 +1,9 @@
-package ru.vsu.museum.persistence.repositories;
+package ru.vsu.museum.persistence.repositories.inMemory;
 
 import ru.vsu.museum.domain.ExponentAuthor;
 import ru.vsu.museum.persistence.Repository;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 public class ExponentAuthorRepository implements Repository<ExponentAuthor> {
     private static ExponentAuthorRepository instance;
@@ -17,8 +16,8 @@ public class ExponentAuthorRepository implements Repository<ExponentAuthor> {
     private ArrayList<ExponentAuthor> exponentAuthors = new ArrayList<ExponentAuthor>();
 
     public ExponentAuthorRepository() {
-        for (long i = 1; i < 10; i++) {
-            exponentAuthors.add(new ExponentAuthor((long)(exponentAuthors.size() + 1), i, i % 5));
+        for (long i = 0; i < 10; i++) {
+            exponentAuthors.add(new ExponentAuthor((long)(exponentAuthors.size()), i, i % 5));
         }
     }
 
@@ -51,7 +50,7 @@ public class ExponentAuthorRepository implements Repository<ExponentAuthor> {
     public void update(ExponentAuthor item) {
         for (int i = 0; i < exponentAuthors.size(); i++) {
             if (exponentAuthors.get(i).getId().equals(item.getId())) {
-                exponentAuthors.remove(i);
+                exponentAuthors.set(i, item);
                 return;
             }
         }

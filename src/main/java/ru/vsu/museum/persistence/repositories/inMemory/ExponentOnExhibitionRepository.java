@@ -1,4 +1,4 @@
-package ru.vsu.museum.persistence.repositories;
+package ru.vsu.museum.persistence.repositories.inMemory;
 
 import ru.vsu.museum.domain.ExponentOnExhibition;
 import ru.vsu.museum.persistence.Repository;
@@ -16,8 +16,8 @@ public class ExponentOnExhibitionRepository implements Repository<ExponentOnExhi
     private ArrayList<ExponentOnExhibition> exponentOnExhibitions = new ArrayList<ExponentOnExhibition>();
 
     public ExponentOnExhibitionRepository() {
-        for (long i = 1; i < 10; i++) {
-            exponentOnExhibitions.add(new ExponentOnExhibition((long)(exponentOnExhibitions.size() + 1), i, i % 4));
+        for (long i = 0; i < 10; i++) {
+            exponentOnExhibitions.add(new ExponentOnExhibition((long)(exponentOnExhibitions.size()), i, i % 2));
         }
     }
 
@@ -50,7 +50,7 @@ public class ExponentOnExhibitionRepository implements Repository<ExponentOnExhi
     public void update(ExponentOnExhibition item) {
         for (int i = 0; i < exponentOnExhibitions.size(); i++) {
             if (exponentOnExhibitions.get(i).getId().equals(item.getId())) {
-                exponentOnExhibitions.remove(i);
+                exponentOnExhibitions.set(i, item);
                 return;
             }
         }

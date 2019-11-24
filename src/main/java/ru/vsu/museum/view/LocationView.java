@@ -1,5 +1,6 @@
 package ru.vsu.museum.view;
 
+import ru.vsu.museum.domain.Exponent;
 import ru.vsu.museum.domain.Location;
 import ru.vsu.museum.service.CategoryService;
 import ru.vsu.museum.service.LocationService;
@@ -18,6 +19,7 @@ public class LocationView {
             System.out.println("2. Полная информация о местоположении (Введите 2)");
             System.out.println("3. Добавить местоположение (Введите 3)");
             System.out.println("4. Удалить местоположение (Введите 4)");
+            System.out.println("5. Обновить местоположение (Введите 5)");
             System.out.println("10. Выход (Введите 10)");
             System.out.print("Ваш выбор: ");
 
@@ -57,6 +59,23 @@ public class LocationView {
                     System.out.print("Введите ID: ");
                     itemId = scanner.nextLong();
                     locationService.deleteById(itemId);
+                    break;
+                case 5:
+                    printAllLocations();
+                    System.out.print("Введите ID: ");
+                    itemId = scanner.nextLong();
+
+                    System.out.print("Введите Имя: ");
+                    scanner.nextLine();
+                    String newName = scanner.nextLine();
+
+                    System.out.print("Введите Адрес: ");
+                    String newAddress = scanner.nextLine();
+
+                    System.out.print("Введите Тип: ");
+                    String newType = scanner.nextLine();
+
+                    locationService.update(new Location(itemId, newName, newAddress, newType));
                     break;
                 case 10:
                     return;

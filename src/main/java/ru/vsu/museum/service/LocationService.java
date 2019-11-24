@@ -2,8 +2,8 @@ package ru.vsu.museum.service;
 
 import ru.vsu.museum.domain.Exponent;
 import ru.vsu.museum.domain.Location;
-import ru.vsu.museum.persistence.repositories.ExponentRepository;
-import ru.vsu.museum.persistence.repositories.LocationRepository;
+import ru.vsu.museum.persistence.repositories.inMemory.ExponentRepository;
+import ru.vsu.museum.persistence.repositories.inMemory.LocationRepository;
 
 import java.util.ArrayList;
 
@@ -23,7 +23,7 @@ public class LocationService {
         for (Exponent exponent : exponentRepository.getAll()) {
             if (exponent.getLocationId().equals(id)) {
                 Exponent newExponent = exponent;
-                newExponent.setCategoryId(null);
+                newExponent.setLocationId(null);
                 exponentRepository.update(newExponent);
             }
         }
@@ -42,5 +42,9 @@ public class LocationService {
                 id = location.getId();
         }
         return id;
+    }
+
+    public void update(Location item) {
+        locationRepository.update(item);
     }
 }

@@ -1,4 +1,4 @@
-package ru.vsu.museum.persistence.repositories;
+package ru.vsu.museum.persistence.repositories.inMemory;
 
 import ru.vsu.museum.domain.Exponent;
 import ru.vsu.museum.persistence.Repository;
@@ -18,9 +18,9 @@ public class ExponentRepository implements Repository<Exponent> {
 
     public ExponentRepository() {
         exponents = new ArrayList<Exponent>();
-        for (long i = 1; i < 10; i++)
+        for (long i = 0; i < 10; i++)
         {
-            exponents.add(new Exponent(i, "Exponent " + i, "Description for exponent " + i, new Date(), i % 3, i % 5));
+            exponents.add(new Exponent(i, "Exponent " + i, "Description for exponent " + i, new Date(), i % 2, i % 4));
         }
     }
 
@@ -52,7 +52,7 @@ public class ExponentRepository implements Repository<Exponent> {
     public void update(Exponent item) {
         for (int i = 0; i < exponents.size(); i++) {
             if (exponents.get(i).getId().equals(item.getId())) {
-                exponents.remove(i);
+                exponents.set(i, item);
                 return;
             }
         }

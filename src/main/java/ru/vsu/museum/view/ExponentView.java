@@ -1,5 +1,6 @@
 package ru.vsu.museum.view;
 
+import ru.vsu.museum.domain.Author;
 import ru.vsu.museum.domain.Category;
 import ru.vsu.museum.domain.Exponent;
 import ru.vsu.museum.domain.Location;
@@ -45,6 +46,11 @@ public class ExponentView {
                     System.out.println("Имя: " + exponent.getName());
                     System.out.println("Описание: " + exponent.getDescription());
                     System.out.println("Дата создания: " + exponent.getCreateDate());
+
+                    System.out.println("Авторы: ");
+                    for (Author author: exponentService.getAuthors(exponent.getId())) {
+                        System.out.println(author.getId() + ". " + author.getName());
+                    }
 
                     Category category = categoryService.getById(exponent.getCategoryId());
                     System.out.println("Категория: " + category.getName());

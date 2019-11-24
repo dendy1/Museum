@@ -3,9 +3,9 @@ package ru.vsu.museum.service;
 import ru.vsu.museum.domain.Exhibition;
 import ru.vsu.museum.domain.Exponent;
 import ru.vsu.museum.domain.ExponentOnExhibition;
-import ru.vsu.museum.persistence.repositories.ExhibitionRepository;
-import ru.vsu.museum.persistence.repositories.ExponentOnExhibitionRepository;
-import ru.vsu.museum.persistence.repositories.ExponentRepository;
+import ru.vsu.museum.persistence.repositories.inMemory.ExhibitionRepository;
+import ru.vsu.museum.persistence.repositories.inMemory.ExponentOnExhibitionRepository;
+import ru.vsu.museum.persistence.repositories.inMemory.ExponentRepository;
 
 import java.util.ArrayList;
 

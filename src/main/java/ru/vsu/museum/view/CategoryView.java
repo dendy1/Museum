@@ -5,6 +5,7 @@ import ru.vsu.museum.domain.Exponent;
 import ru.vsu.museum.service.CategoryService;
 import ru.vsu.museum.service.ExponentService;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class CategoryView {

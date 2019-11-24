@@ -1,4 +1,4 @@
-package ru.vsu.museum.persistence.repositories;
+package ru.vsu.museum.persistence.repositories.inMemory;
 
 import ru.vsu.museum.domain.Exhibition;
 import ru.vsu.museum.persistence.Repository;
@@ -18,7 +18,7 @@ public class ExhibitionRepository implements Repository<Exhibition> {
 
     public ExhibitionRepository() {
         exhibitions = new ArrayList<Exhibition>();
-        for (long i = 1; i < 4; i++)
+        for (long i = 0; i < 2; i++)
         {
             exhibitions.add(new Exhibition(i, new Date(), new Date(), "Exhibiton " + i, "Russia", "Valeriy Albertovich"));
         }
@@ -52,7 +52,7 @@ public class ExhibitionRepository implements Repository<Exhibition> {
     public void update(Exhibition item) {
         for (int i = 0; i < exhibitions.size(); i++) {
             if (exhibitions.get(i).getId().equals(item.getId())) {
-                exhibitions.remove(i);
+                exhibitions.set(i, item);
                 return;
             }
         }
