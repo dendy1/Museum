@@ -29,20 +29,20 @@ public class LocationRepository implements Repository<Location> {
 
     public Location getById(Long id) {
         for (Location location : locations) {
-            if (location.getId().equals(id))
+            if (location.getLocationId().equals(id))
                 return location;
         }
         return null;
     }
 
-    public Boolean create(Location item) {
+    public boolean create(Location item) {
         locations.add(item);
         return true;
     }
 
-    public Boolean delete(Long id) {
+    public boolean delete(Long id) {
         for (int i = 0; i < locations.size(); i++) {
-            if (locations.get(i).getId().equals(id)) {
+            if (locations.get(i).getLocationId().equals(id)) {
                 locations.remove(i);
                 return true;
             }
@@ -50,9 +50,9 @@ public class LocationRepository implements Repository<Location> {
         return false;
     }
 
-    public Boolean update(Location item) {
+    public boolean update(Location item) {
         for (int i = 0; i < locations.size(); i++) {
-            if (locations.get(i).getId().equals(item.getId())) {
+            if (locations.get(i).getLocationId().equals(item.getLocationId())) {
                 locations.set(i, item);
                 return true;
             }

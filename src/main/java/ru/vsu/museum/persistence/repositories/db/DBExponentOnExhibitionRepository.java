@@ -20,7 +20,7 @@ public class DBExponentOnExhibitionRepository implements Repository<ExponentOnEx
             System.out.println("Driver class not found. " + e.getMessage());
         }
 
-        createTable();
+        //createTable();
     }
 
     private void createTable()
@@ -111,7 +111,7 @@ public class DBExponentOnExhibitionRepository implements Repository<ExponentOnEx
     }
 
     @Override
-    public Boolean create(ExponentOnExhibition item) {
+    public boolean create(ExponentOnExhibition item) {
         try (
                 Connection connection = DriverManager.getConnection(Config.URL, Config.USER, Config.PASSWORD);
         ) {
@@ -131,11 +131,11 @@ public class DBExponentOnExhibitionRepository implements Repository<ExponentOnEx
         } catch (SQLException e) {
             System.out.println("Connection error. " + e.getMessage());
         }
-        return null;
+        return false;
     }
 
     @Override
-    public Boolean delete(Long id) {
+    public boolean delete(Long id) {
         try (
                 Connection connection = DriverManager.getConnection(Config.URL, Config.USER, Config.PASSWORD);
         ) {
@@ -153,11 +153,11 @@ public class DBExponentOnExhibitionRepository implements Repository<ExponentOnEx
         } catch (SQLException e) {
             System.out.println("Connection error. " + e.getMessage());
         }
-        return null;
+        return false;
     }
 
     @Override
-    public Boolean update(ExponentOnExhibition item) {
+    public boolean update(ExponentOnExhibition item) {
         try (
                 Connection connection = DriverManager.getConnection(Config.URL, Config.USER, Config.PASSWORD);
         ) {
@@ -178,7 +178,7 @@ public class DBExponentOnExhibitionRepository implements Repository<ExponentOnEx
         } catch (SQLException e) {
             System.out.println("Connection error. " + e.getMessage());
         }
-        return null;
+        return false;
     }
 
     @Override

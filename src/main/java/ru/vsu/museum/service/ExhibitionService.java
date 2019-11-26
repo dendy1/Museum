@@ -6,9 +6,7 @@ import ru.vsu.museum.domain.ExponentOnExhibition;
 import ru.vsu.museum.persistence.Repository;
 import ru.vsu.museum.persistence.repositories.db.DBExhibitionRepository;
 import ru.vsu.museum.persistence.repositories.db.DBExponentRepository;
-import ru.vsu.museum.persistence.repositories.inMemory.ExhibitionRepository;
 import ru.vsu.museum.persistence.repositories.inMemory.ExponentOnExhibitionRepository;
-import ru.vsu.museum.persistence.repositories.inMemory.ExponentRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,8 +55,8 @@ public class ExhibitionService {
     {
         long id = 0;
         for (Exhibition exhibition: exhibitionRepository.getAll()) {
-            if (exhibition.getId() > id)
-                id = exhibition.getId();
+            if (exhibition.getExhibitionId() > id)
+                id = exhibition.getExhibitionId();
         }
         return id;
     }

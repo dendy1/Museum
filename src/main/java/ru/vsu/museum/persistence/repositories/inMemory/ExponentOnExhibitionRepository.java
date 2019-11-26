@@ -35,12 +35,12 @@ public class ExponentOnExhibitionRepository implements Repository<ExponentOnExhi
         return null;
     }
 
-    public Boolean create(ExponentOnExhibition item) {
+    public boolean create(ExponentOnExhibition item) {
         exponentOnExhibitions.add(item);
         return true;
     }
 
-    public Boolean delete(Long id) {
+    public boolean delete(Long id) {
         for (int i = 0; i < exponentOnExhibitions.size(); i++) {
             if (exponentOnExhibitions.get(i).getId().equals(id)) {
                 exponentOnExhibitions.remove(i);
@@ -50,7 +50,7 @@ public class ExponentOnExhibitionRepository implements Repository<ExponentOnExhi
         return false;
     }
 
-    public Boolean update(ExponentOnExhibition item) {
+    public boolean update(ExponentOnExhibition item) {
         for (int i = 0; i < exponentOnExhibitions.size(); i++) {
             if (exponentOnExhibitions.get(i).getId().equals(item.getId())) {
                 exponentOnExhibitions.set(i, item);

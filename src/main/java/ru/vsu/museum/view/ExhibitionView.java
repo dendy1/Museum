@@ -38,13 +38,13 @@ public class ExhibitionView {
                     itemId = scanner.nextLong();
                     Exhibition exhibition = exhibitionService.getById(itemId);
 
-                    System.out.println("ID: " + exhibition.getId());
+                    System.out.println("ID: " + exhibition.getExhibitionId());
                     System.out.println("Дата начала: " + exhibition.getDate());
                     System.out.println("Название: " + exhibition.getName());
 
                     System.out.println("Экспонаты: ");
-                    for (Exponent exponent: exhibitionService.getExponents(exhibition.getId())) {
-                        System.out.println(exponent.getId() + ". " + exponent.getName());
+                    for (Exponent exponent: exhibitionService.getExponents(exhibition.getExhibitionId())) {
+                        System.out.println(exponent.getExponentId() + ". " + exponent.getName());
                     }
                     break;
                 case 3:
@@ -104,13 +104,13 @@ public class ExhibitionView {
 
     private void printAllExhibitions() {
         for (Exhibition exhibition: exhibitionService.getAll()) {
-            System.out.println(exhibition.getId() + ". " + exhibition.getName() + "; " + exhibition.getDate());
+            System.out.println(exhibition.getExhibitionId() + ". " + exhibition.getName() + "; " + exhibition.getDate());
         }
     }
 
     private void printAllExponents() {
         for (Exponent exponent: exponentService.getAll()) {
-            System.out.println(exponent.getId() + ". " + exponent.getName());
+            System.out.println(exponent.getExponentId() + ". " + exponent.getName());
         }
     }
 }

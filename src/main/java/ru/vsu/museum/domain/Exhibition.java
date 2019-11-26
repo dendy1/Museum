@@ -3,12 +3,12 @@ package ru.vsu.museum.domain;
 import java.util.Date;
 
 public class Exhibition {
-    private Long id;
+    private Long exhibitionId;
     private Date date;
     private String name;
 
-    public Exhibition(Long id, Date date, String name) {
-        this.id = id;
+    public Exhibition(Long exhibitionId, Date date, String name) {
+        this.exhibitionId = exhibitionId;
         this.date = date;
         this.name = name;
     }
@@ -16,12 +16,12 @@ public class Exhibition {
     public Exhibition() {
     }
 
-    public Long getId() {
-        return id;
+    public Long getExhibitionId() {
+        return exhibitionId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setExhibitionId(Long exhibitionId) {
+        this.exhibitionId = exhibitionId;
     }
 
     public Date getDate() {

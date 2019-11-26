@@ -1,23 +1,23 @@
 package ru.vsu.museum.domain;
 
 public class Location {
-    private Long id;
+    private Long locationId;
     private String name;
 
-    public Location(Long id, String name) {
-        this.id = id;
+    public Location(Long locationId, String name) {
+        this.locationId = locationId;
         this.name = name;
     }
 
     public Location() {
     }
 
-    public Long getId() {
-        return id;
+    public Long getLocationId() {
+        return locationId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setLocationId(Long locationId) {
+        this.locationId = locationId;
     }
 
     public String getName() {

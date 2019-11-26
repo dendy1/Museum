@@ -6,14 +6,12 @@ import ru.vsu.museum.persistence.Repository;
 import ru.vsu.museum.persistence.repositories.db.DBExponentOnExhibitionRepository;
 import ru.vsu.museum.persistence.repositories.db.DBExponentRepository;
 import ru.vsu.museum.persistence.repositories.inMemory.ExponentOnExhibitionRepository;
-import ru.vsu.museum.persistence.repositories.inMemory.ExponentRepository;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ExponentService {
     private Repository<Exponent> exponentRepository = new DBExponentRepository();
-    private Repository<ExponentOnExhibition> exponentOnExhibitionRepository = new DBExponentOnExhibitionRepository();
+    private Repository<ExponentOnExhibition> exponentOnExhibitionRepository = ExponentOnExhibitionRepository.getInstance();
 
     public List<Exponent> getAll() {
         return exponentRepository.getAll();
@@ -43,8 +41,8 @@ public class ExponentService {
     {
         long id = 0;
         for (Exponent exponent: exponentRepository.getAll()) {
-            if (exponent.getId() > id)
-                id = exponent.getId();
+            if (exponent.getExponentId() > id)
+                id = exponent.getExponentId();
         }
         return id;
     }

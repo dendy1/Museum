@@ -5,10 +5,7 @@ import ru.vsu.museum.domain.Location;
 import ru.vsu.museum.persistence.Repository;
 import ru.vsu.museum.persistence.repositories.db.DBExponentRepository;
 import ru.vsu.museum.persistence.repositories.db.DBLocationRepository;
-import ru.vsu.museum.persistence.repositories.inMemory.ExponentRepository;
-import ru.vsu.museum.persistence.repositories.inMemory.LocationRepository;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class LocationService {
@@ -42,8 +39,8 @@ public class LocationService {
     {
         long id = 0;
         for (Location location: locationRepository.getAll()) {
-            if (location.getId() > id)
-                id = location.getId();
+            if (location.getLocationId() > id)
+                id = location.getLocationId();
         }
         return id;
     }

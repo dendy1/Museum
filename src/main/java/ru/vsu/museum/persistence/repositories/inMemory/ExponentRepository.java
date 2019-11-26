@@ -4,7 +4,6 @@ import ru.vsu.museum.domain.Exponent;
 import ru.vsu.museum.persistence.Repository;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 public class ExponentRepository implements Repository<Exponent> {
     private static ExponentRepository instance;
@@ -30,20 +29,20 @@ public class ExponentRepository implements Repository<Exponent> {
 
     public Exponent getById(Long id) {
         for (Exponent exponent : exponents) {
-            if (exponent.getId().equals(id))
+            if (exponent.getExponentId().equals(id))
                 return exponent;
         }
         return null;
     }
 
-    public Boolean create(Exponent item) {
+    public boolean create(Exponent item) {
         exponents.add(item);
         return true;
     }
 
-    public Boolean delete(Long id) {
+    public boolean delete(Long id) {
         for (int i = 0; i < exponents.size(); i++) {
-            if (exponents.get(i).getId().equals(id)) {
+            if (exponents.get(i).getExponentId().equals(id)) {
                 exponents.remove(i);
                 return true;
             }
@@ -51,9 +50,9 @@ public class ExponentRepository implements Repository<Exponent> {
         return false;
     }
 
-    public Boolean update(Exponent item) {
+    public boolean update(Exponent item) {
         for (int i = 0; i < exponents.size(); i++) {
-            if (exponents.get(i).getId().equals(item.getId())) {
+            if (exponents.get(i).getExponentId().equals(item.getExponentId())) {
                 exponents.set(i, item);
                 return true;
             }

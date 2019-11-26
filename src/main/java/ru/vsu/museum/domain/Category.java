@@ -1,12 +1,12 @@
 package ru.vsu.museum.domain;
 
 public class Category {
-    private Long id;
+    private Long categoryId;
     private String name;
     private String description;
 
-    public Category(Long id, String name, String description) {
-        this.id = id;
+    public Category(Long categoryId, String name, String description) {
+        this.categoryId = categoryId;
         this.name = name;
         this.description = description;
     }
@@ -14,12 +14,12 @@ public class Category {
     public Category() {
     }
 
-    public Long getId() {
-        return id;
+    public Long getCategoryId() {
+        return categoryId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setCategoryId(Long categoryId) {
+        this.categoryId = categoryId;
     }
 
     public String getName() {

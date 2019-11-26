@@ -1,15 +1,13 @@
 package ru.vsu.museum.domain;
 
-import java.util.Date;
-
 public class Exponent {
-    private Long id;
+    private Long exponentId;
     private String name;
     private Long categoryId;
     private Long locationId;
 
-    public Exponent(Long id, String name, Long categoryId, Long locationId) {
-        this.id = id;
+    public Exponent(Long exponentId, String name, Long categoryId, Long locationId) {
+        this.exponentId = exponentId;
         this.name = name;
         this.categoryId = categoryId;
         this.locationId = locationId;
@@ -18,12 +16,12 @@ public class Exponent {
     public Exponent() {
     }
 
-    public Long getId() {
-        return id;
+    public Long getExponentId() {
+        return exponentId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setExponentId(Long exponentId) {
+        this.exponentId = exponentId;
     }
 
     public String getName() {

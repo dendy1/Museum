@@ -3,9 +3,7 @@ package ru.vsu.museum.view;
 import ru.vsu.museum.domain.Category;
 import ru.vsu.museum.domain.Exponent;
 import ru.vsu.museum.service.CategoryService;
-import ru.vsu.museum.service.ExponentService;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class CategoryView {
@@ -79,7 +77,7 @@ public class CategoryView {
     private void printAllCategories()
     {
         for (Category category: categoryService.getAll()) {
-            System.out.println(category.getId() + ". " + category.getName());
+            System.out.println(category.getCategoryId() + ". " + category.getName());
         }
     }
 }

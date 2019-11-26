@@ -30,20 +30,20 @@ public class CategoryRepository implements Repository<Category> {
 
     public Category getById(Long id) {
         for (Category category : categories) {
-            if (category.getId().equals(id))
+            if (category.getCategoryId().equals(id))
                 return category;
         }
         return null;
     }
 
-    public Boolean create(Category item) {
+    public boolean create(Category item) {
         categories.add(item);
         return true;
     }
 
-    public Boolean delete(Long id) {
+    public boolean delete(Long id) {
         for (int i = 0; i < categories.size(); i++) {
-            if (categories.get(i).getId().equals(id)) {
+            if (categories.get(i).getCategoryId().equals(id)) {
                 categories.remove(i);
                 return true;
             }
@@ -51,9 +51,9 @@ public class CategoryRepository implements Repository<Category> {
         return false;
     }
 
-    public Boolean update(Category item) {
+    public boolean update(Category item) {
         for (int i = 0; i < categories.size(); i++) {
-            if (categories.get(i).getId().equals(item.getId())) {
+            if (categories.get(i).getCategoryId().equals(item.getCategoryId())) {
                 categories.set(i, item);
                 return true;
             }

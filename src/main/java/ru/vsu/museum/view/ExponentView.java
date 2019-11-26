@@ -7,9 +7,6 @@ import ru.vsu.museum.service.CategoryService;
 import ru.vsu.museum.service.ExponentService;
 import ru.vsu.museum.service.LocationService;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -42,7 +39,7 @@ public class ExponentView {
                     itemId = scanner.nextLong();
                     Exponent exponent = exponentService.getById(itemId);
 
-                    System.out.println("ID: " + exponent.getId());
+                    System.out.println("ID: " + exponent.getExponentId());
                     System.out.println("Имя: " + exponent.getName());
 
                     Category category = categoryService.getById(exponent.getCategoryId());
@@ -101,21 +98,21 @@ public class ExponentView {
     {
         List<Exponent> exponents = exponentService.getAll();
         for (Exponent exponent: exponents) {
-            System.out.println(exponent.getId() + ". " + exponent.getName());
+            System.out.println(exponent.getExponentId() + ". " + exponent.getName());
         }
     }
 
     private void printAllCategories() {
         List<Category> categories = categoryService.getAll();
         for (Category category: categories) {
-            System.out.println(category.getId() + ". " + category.getName());
+            System.out.println(category.getCategoryId() + ". " + category.getName());
         }
     }
 
     private void printAllLocations() {
         List<Location> locations = locationService.getAll();
         for (Location location: locations) {
-            System.out.println(location.getId() + ". " + location.getName());
+            System.out.println(location.getLocationId() + ". " + location.getName());
         }
     }
 }

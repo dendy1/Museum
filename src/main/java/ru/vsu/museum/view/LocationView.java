@@ -1,11 +1,8 @@
 package ru.vsu.museum.view;
 
-import ru.vsu.museum.domain.Exponent;
 import ru.vsu.museum.domain.Location;
-import ru.vsu.museum.service.CategoryService;
 import ru.vsu.museum.service.LocationService;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -36,7 +33,7 @@ public class LocationView {
                     itemId = scanner.nextLong();
                     Location location = locationService.getById(itemId);
 
-                    System.out.println("ID: " + location.getId());
+                    System.out.println("ID: " + location.getLocationId());
                     System.out.println("Имя: " + location.getName());
 
                     break;
@@ -73,7 +70,7 @@ public class LocationView {
     private void printAllLocations() {
         List<Location> locations = locationService.getAll();
         for (Location location: locations) {
-            System.out.println(location.getId() + ". " + location.getName());
+            System.out.println(location.getLocationId() + ". " + location.getName());
         }
     }
 }

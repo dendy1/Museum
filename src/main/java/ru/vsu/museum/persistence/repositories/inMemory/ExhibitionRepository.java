@@ -30,20 +30,20 @@ public class ExhibitionRepository implements Repository<Exhibition> {
 
     public Exhibition getById(Long id) {
         for (Exhibition exhibition : exhibitions) {
-            if (exhibition.getId().equals(id))
+            if (exhibition.getExhibitionId().equals(id))
                 return exhibition;
         }
         return null;
     }
 
-    public Boolean create(Exhibition item) {
+    public boolean create(Exhibition item) {
         exhibitions.add(item);
         return true;
     }
 
-    public Boolean delete(Long id) {
+    public boolean delete(Long id) {
         for (int i = 0; i < exhibitions.size(); i++) {
-            if (exhibitions.get(i).getId().equals(id)) {
+            if (exhibitions.get(i).getExhibitionId().equals(id)) {
                 exhibitions.remove(i);
                 return true;
             }
@@ -51,9 +51,9 @@ public class ExhibitionRepository implements Repository<Exhibition> {
         return false;
     }
 
-    public Boolean update(Exhibition item) {
+    public boolean update(Exhibition item) {
         for (int i = 0; i < exhibitions.size(); i++) {
-            if (exhibitions.get(i).getId().equals(item.getId())) {
+            if (exhibitions.get(i).getExhibitionId().equals(item.getExhibitionId())) {
                 exhibitions.set(i, item);
                 return true;
             }

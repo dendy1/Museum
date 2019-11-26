@@ -50,8 +50,8 @@ public class CategoryService {
     {
         long id = 0;
         for (Category category: categoryRepository.getAll()) {
-            if (category.getId() > id)
-                id = category.getId();
+            if (category.getCategoryId() > id)
+                id = category.getCategoryId();
         }
         return id;
     }
