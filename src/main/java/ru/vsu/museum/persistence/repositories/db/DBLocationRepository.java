@@ -22,7 +22,7 @@ public class DBLocationRepository implements Repository<Location> {
             System.out.println("Driver class not found. " + e.getMessage());
         }
 
-        //createTable();
+        createTable();
     }
 
     private void createTable()

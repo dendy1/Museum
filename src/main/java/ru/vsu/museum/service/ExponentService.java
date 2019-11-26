@@ -3,6 +3,7 @@ package ru.vsu.museum.service;
 import ru.vsu.museum.domain.Exponent;
 import ru.vsu.museum.domain.ExponentOnExhibition;
 import ru.vsu.museum.persistence.Repository;
+import ru.vsu.museum.persistence.repositories.db.DBExponentOnExhibitionRepository;
 import ru.vsu.museum.persistence.repositories.db.DBExponentRepository;
 import ru.vsu.museum.persistence.repositories.inMemory.ExponentOnExhibitionRepository;
 import ru.vsu.museum.persistence.repositories.inMemory.ExponentRepository;
@@ -12,7 +13,7 @@ import java.util.List;
 
 public class ExponentService {
     private Repository<Exponent> exponentRepository = new DBExponentRepository();
-    private Repository<ExponentOnExhibition> exponentOnExhibitionRepository = ExponentOnExhibitionRepository.getInstance();
+    private Repository<ExponentOnExhibition> exponentOnExhibitionRepository = new DBExponentOnExhibitionRepository();
 
     public List<Exponent> getAll() {
         return exponentRepository.getAll();

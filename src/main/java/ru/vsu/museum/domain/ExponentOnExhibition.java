@@ -2,13 +2,13 @@ package ru.vsu.museum.domain;
 
 public class ExponentOnExhibition {
     private Long id;
-    private Long exponentId;
     private Long exhibitionId;
+    private Long exponentId;
 
-    public ExponentOnExhibition(Long id, Long exponentId, Long exhibitionId) {
+    public ExponentOnExhibition(Long id, Long exhibitionId, Long exponentId) {
         this.id = id;
-        this.exponentId = exponentId;
         this.exhibitionId = exhibitionId;
+        this.exponentId = exponentId;
     }
 
     public ExponentOnExhibition() {

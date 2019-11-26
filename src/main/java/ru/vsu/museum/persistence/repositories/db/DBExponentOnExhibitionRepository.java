@@ -1,21 +1,19 @@
 package ru.vsu.museum.persistence.repositories.db;
 
 import ru.vsu.museum.Config;
-import ru.vsu.museum.domain.Exhibition;
+import ru.vsu.museum.domain.ExponentOnExhibition;
 import ru.vsu.museum.persistence.Repository;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
-public class DBExhibitionRepository implements Repository<Exhibition> {
+public class DBExponentOnExhibitionRepository implements Repository<ExponentOnExhibition> {
     interface Mapper<T> {
         List<T> foo(ResultSet resultSet);
     }
 
-    public DBExhibitionRepository()
-    {
+    public DBExponentOnExhibitionRepository() {
         try {
             Class.forName("org.h2.Driver");
         } catch (ClassNotFoundException e) {
@@ -31,30 +29,46 @@ public class DBExhibitionRepository implements Repository<Exhibition> {
                 Connection connection = DriverManager.getConnection(Config.URL, Config.USER, Config.PASSWORD);
                 Statement statement = connection.createStatement();
         ) {
-            statement.execute("CREATE TABLE exhibition (exhibition_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, date DATE NOT NULL, name VARCHAR(100) NOT NULL)");
-            statement.execute("INSERT INTO exhibition VALUES (1, '2019-12-01', 'Exhibition 1')");
-            statement.execute("INSERT INTO exhibition VALUES (2, '2019-12-02', 'Exhibition 2')");
-            statement.execute("INSERT INTO exhibition VALUES (3, '2019-12-03', 'Exhibition 3')");
-            statement.execute("INSERT INTO exhibition VALUES (4, '2019-12-04', 'Exhibition 4')");
+            statement.execute(
+                    "CREATE TABLE exponent_on_exhibition (" +
+                            "id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, " +
+                            "exhibition_id INT NOT NULL, " +
+                            "exponent_id INT NOT NULL,  " +
+                            "FOREIGN KEY (exhibition_id) REFERENCES exhibition (exhibition_id)," +
+                            "FOREIGN KEY (exponent_id) REFERENCES exponent (exponent_id))");
+            statement.execute("INSERT INTO exponent_on_exhibition VALUES (1, 1)");
+            statement.execute("INSERT INTO exponent_on_exhibition VALUES (1, 2)");
+            statement.execute("INSERT INTO exponent_on_exhibition VALUES (1, 3)");
+
+            statement.execute("INSERT INTO exponent_on_exhibition VALUES (2, 4)");
+            statement.execute("INSERT INTO exponent_on_exhibition VALUES (2, 5)");
+            statement.execute("INSERT INTO exponent_on_exhibition VALUES (2, 6)");
+
+            statement.execute("INSERT INTO exponent_on_exhibition VALUES (3, 1)");
+            statement.execute("INSERT INTO exponent_on_exhibition VALUES (3, 2)");
+            statement.execute("INSERT INTO exponent_on_exhibition VALUES (3, 3)");
+
+            statement.execute("INSERT INTO exponent_on_exhibition VALUES (4, 4)");
+            statement.execute("INSERT INTO exponent_on_exhibition VALUES (4, 5)");
+            statement.execute("INSERT INTO exponent_on_exhibition VALUES (4, 6)");
         } catch (SQLException e) {
             System.out.println("DDL or DML statement error. " + e.getMessage());
         }
     }
 
     @Override
-    public List<Exhibition> getAll() {
-        Mapper mapper = new Mapper<Exhibition>() {
+    public List<ExponentOnExhibition> getAll() {
+        Mapper mapper = new Mapper<ExponentOnExhibition>() {
             @Override
-            public List<Exhibition> foo(ResultSet resultSet) {
+            public List<ExponentOnExhibition> foo(ResultSet resultSet) {
                 try {
-                    List<Exhibition> exhibitions = new ArrayList<Exhibition>();
+                    List<ExponentOnExhibition> exponentOnExhibitions = new ArrayList<ExponentOnExhibition>();
                     while (resultSet.next()) {
-                        Long id = resultSet.getLong("exhibition_id");
-                        Date date = resultSet.getDate("date");
-                        String name = resultSet.getString("name");
-                        exhibitions.add(new Exhibition(id, date, name   ));
+                        Long exhibitionId = resultSet.getLong("exhibition_id");
+                        Long exponentId = resultSet.getLong("exponent_id");
+                        exponentOnExhibitions.add(new ExponentOnExhibition(null, exhibitionId, exponentId));
                     }
-                    return exhibitions;
+                    return exponentOnExhibitions;
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
@@ -62,27 +76,27 @@ public class DBExhibitionRepository implements Repository<Exhibition> {
             }
         };
 
-        return executeSelectQuery("SELECT * FROM exhibition", mapper);
+        return executeSelectQuery("SELECT * FROM exponent_on_exhibition", mapper);
     }
 
     @Override
-    public Exhibition getById(Long id) {
-        Mapper mapper = new Mapper<Exhibition>() {
+    public ExponentOnExhibition getById(Long id) {
+        Mapper mapper = new Mapper<ExponentOnExhibition>() {
             @Override
-            public List<Exhibition> foo(ResultSet resultSet) {
+            public List<ExponentOnExhibition> foo(ResultSet resultSet) {
                 try {
-                    List<Exhibition> exhibitions = new ArrayList<Exhibition>();
+                    List<ExponentOnExhibition> exponentOnExhibitions = new ArrayList<ExponentOnExhibition>();
                     while (resultSet.next()) {
-                        Long exhibitionId = resultSet.getLong("exhibition_id");
-                        if (!exhibitionId.equals(id)) {
+                        Long expId = resultSet.getLong("id");
+                        if (!expId.equals(id)) {
                             continue;
                         }
-                        Date date = resultSet.getDate("date");
-                        String name = resultSet.getString("name");
-                        exhibitions.add(new Exhibition(exhibitionId, date, name));
+                        Long exhibitionId = resultSet.getLong("exhibition_id");
+                        Long exponentId = resultSet.getLong("exponent_id");
+                        exponentOnExhibitions.add(new ExponentOnExhibition(null, exhibitionId, exponentId));
                         break;
                     }
-                    return exhibitions;
+                    return exponentOnExhibitions;
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
@@ -90,21 +104,21 @@ public class DBExhibitionRepository implements Repository<Exhibition> {
             }
         };
 
-        List<Exhibition> exhibitions = executeSelectQuery(String.format("SELECT * FROM exhibition WHERE exhibition_id=%d", id), mapper);
-        if (exhibitions != null && !exhibitions.isEmpty())
-            return exhibitions.get(0);
+        List<ExponentOnExhibition> exponentOnExhibitions = executeSelectQuery(String.format("SELECT * FROM exponent_on_exhibition WHERE id=%d", id), mapper);
+        if (exponentOnExhibitions != null && !exponentOnExhibitions.isEmpty())
+            return exponentOnExhibitions.get(0);
         return null;
     }
 
     @Override
-    public Boolean create(Exhibition item) {
+    public Boolean create(ExponentOnExhibition item) {
         try (
                 Connection connection = DriverManager.getConnection(Config.URL, Config.USER, Config.PASSWORD);
         ) {
-            String sql = "insert into exhibition (exhibition_id, date, name) values (null, ?, ?)";
+            String sql = "insert into expo (id, exhibition_id, exponent_id) values (null, ?, ?)";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setDate(1, new java.sql.Date(item.getDate().getTime()));
-            preparedStatement.setString(2, item.getName());
+            preparedStatement.setLong(1, item.getExhibitionId());
+            preparedStatement.setLong(2, item.getExponentId());
 
             int rows = preparedStatement.executeUpdate();
             preparedStatement.close();
@@ -125,7 +139,7 @@ public class DBExhibitionRepository implements Repository<Exhibition> {
         try (
                 Connection connection = DriverManager.getConnection(Config.URL, Config.USER, Config.PASSWORD);
         ) {
-            String sql = "delete from exhibition where exhibition_id = ?";
+            String sql = "delete from exponent_on_exhibition where id = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setLong(1, id);
             int rows = preparedStatement.executeUpdate();
@@ -143,14 +157,14 @@ public class DBExhibitionRepository implements Repository<Exhibition> {
     }
 
     @Override
-    public Boolean update(Exhibition item) {
+    public Boolean update(ExponentOnExhibition item) {
         try (
                 Connection connection = DriverManager.getConnection(Config.URL, Config.USER, Config.PASSWORD);
         ) {
-            String sql = "update exhibition set date = ?, name = ? where exhibition_id=?";
+            String sql = "update exponent_on_exhibition set exhibition_id = ?, exponent_id = ? where id=?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setDate(1, new java.sql.Date(item.getDate().getTime()));
-            preparedStatement.setString(2, item.getName());
+            preparedStatement.setLong(1, item.getExhibitionId());
+            preparedStatement.setLong(2, item.getExponentId());
             preparedStatement.setLong(3, item.getId());
 
             int rows = preparedStatement.executeUpdate();
@@ -168,7 +182,8 @@ public class DBExhibitionRepository implements Repository<Exhibition> {
     }
 
     @Override
-    public Long getCount() {
+    public Long getCount()
+    {
         Mapper mapper = new Mapper<Long>() {
             @Override
             public List<Long> foo(ResultSet resultSet) {
@@ -187,7 +202,7 @@ public class DBExhibitionRepository implements Repository<Exhibition> {
             }
         };
 
-        List<Long> rs = executeSelectQuery("SELECT count(1) AS cnt FROM exhibition", mapper);
+        List<Long> rs = executeSelectQuery("SELECT count(1) AS cnt FROM exponent_on_exhibition", mapper);
         if (rs != null && !rs.isEmpty())
             return rs.get(0);
 

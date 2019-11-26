@@ -21,7 +21,7 @@ public class DBExponentRepository implements Repository<Exponent> {
             System.out.println("Driver class not found. " + e.getMessage());
         }
 
-        //createTable();
+        createTable();
     }
 
     private void createTable()

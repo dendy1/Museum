@@ -18,7 +18,7 @@ public class ExponentOnExhibitionRepository implements Repository<ExponentOnExhi
 
     public ExponentOnExhibitionRepository() {
         for (long i = 0; i < 10; i++) {
-            exponentOnExhibitions.add(new ExponentOnExhibition((long)(exponentOnExhibitions.size()), i, i % 2));
+            exponentOnExhibitions.add(new ExponentOnExhibition((long)(exponentOnExhibitions.size()), i % 2, i));
         }
     }
 

@@ -50,7 +50,6 @@ public class ExhibitionView {
                 case 3:
                     SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
                     System.out.print("Введите дату начала в формате DD/MM/YYYY: ");
-                    scanner.nextLine();
                     Date date;
                     try {
                         date = dateFormat.parse(scanner.nextLine());

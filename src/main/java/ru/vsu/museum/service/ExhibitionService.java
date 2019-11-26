@@ -50,7 +50,7 @@ public class ExhibitionService {
                 id = exponentOnExhibition.getId();
         }
 
-        exponentOnExhibitionRepository.create(new ExponentOnExhibition(id, exhibitionId, exponentId));
+        exponentOnExhibitionRepository.create(new ExponentOnExhibition(id, exponentId, exhibitionId));
     }
 
     public long getLastId()
