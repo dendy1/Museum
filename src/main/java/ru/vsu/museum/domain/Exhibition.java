@@ -4,19 +4,13 @@ import java.util.Date;
 
 public class Exhibition {
     private Long id;
-    private Date startDate;
-    private Date endDate;
+    private Date date;
     private String name;
-    private String place;
-    private String holder;
 
-    public Exhibition(Long id, Date startDate, Date endDate, String name, String place, String holder) {
+    public Exhibition(Long id, Date date, String name) {
         this.id = id;
-        this.startDate = startDate;
-        this.endDate = endDate;
+        this.date = date;
         this.name = name;
-        this.place = place;
-        this.holder = holder;
     }
 
     public Exhibition() {
@@ -30,20 +24,12 @@ public class Exhibition {
         this.id = id;
     }
 
-    public Date getStartDate() {
-        return startDate;
+    public Date getDate() {
+        return date;
     }
 
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
-    }
-
-    public Date getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public String getName() {
@@ -52,21 +38,5 @@ public class Exhibition {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getPlace() {
-        return place;
-    }
-
-    public void setPlace(String place) {
-        this.place = place;
-    }
-
-    public String getHolder() {
-        return holder;
-    }
-
-    public void setHolder(String holder) {
-        this.holder = holder;
     }
 }

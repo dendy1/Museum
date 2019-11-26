@@ -1,11 +1,12 @@
 package ru.vsu.museum.persistence;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public interface Repository<T> {
-    ArrayList<T> getAll();
+    List<T> getAll();
     T getById(Long id);
-    void create(T item);
-    void delete(Long id);
-    void update(T item);
+    Boolean create(T item);
+    Boolean update(T item);
+    Boolean delete(Long id);
+    Long getCount();
 }

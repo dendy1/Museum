@@ -52,9 +52,9 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="full.screen.before.presentation.mode" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/h2-1.4.200.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/org.h2.Driver.jar!/" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
@@ -79,11 +79,13 @@
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="13" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="ru.vsu.museum.Main" />
       <module name="Museum" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ru.vsu.museum.*" />
+          <option name="PATTERN" value="ru.vsu.museum.connectionPool.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -124,6 +126,10 @@
       <workItem from="1572969325360" duration="49000" />
       <workItem from="1572969544944" duration="3508000" />
       <workItem from="1573573935101" duration="6055000" />
+      <workItem from="1574714782844" duration="3337000" />
+      <workItem from="1574718158644" duration="298000" />
+      <workItem from="1574718490547" duration="5201000" />
+      <workItem from="1574723722857" duration="3427000" />
     </task>
     <servers />
   </component>

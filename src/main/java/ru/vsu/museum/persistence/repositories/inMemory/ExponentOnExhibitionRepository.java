@@ -4,6 +4,7 @@ import ru.vsu.museum.domain.ExponentOnExhibition;
 import ru.vsu.museum.persistence.Repository;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class ExponentOnExhibitionRepository implements Repository<ExponentOnExhibition> {
     private static ExponentOnExhibitionRepository instance;
@@ -34,25 +35,32 @@ public class ExponentOnExhibitionRepository implements Repository<ExponentOnExhi
         return null;
     }
 
-    public void create(ExponentOnExhibition item) {
+    public Boolean create(ExponentOnExhibition item) {
         exponentOnExhibitions.add(item);
+        return true;
     }
 
-    public void delete(Long id) {
+    public Boolean delete(Long id) {
         for (int i = 0; i < exponentOnExhibitions.size(); i++) {
             if (exponentOnExhibitions.get(i).getId().equals(id)) {
                 exponentOnExhibitions.remove(i);
-                return;
+                return true;
             }
         }
+        return false;
     }
 
-    public void update(ExponentOnExhibition item) {
+    public Boolean update(ExponentOnExhibition item) {
         for (int i = 0; i < exponentOnExhibitions.size(); i++) {
             if (exponentOnExhibitions.get(i).getId().equals(item.getId())) {
                 exponentOnExhibitions.set(i, item);
-                return;
+                return true;
             }
         }
+        return false;
+    }
+
+    public Long getCount() {
+        return (long)exponentOnExhibitions.size();
     }
 }

@@ -5,16 +5,12 @@ import java.util.Date;
 public class Exponent {
     private Long id;
     private String name;
-    private String description;
-    private Date createDate;
     private Long categoryId;
     private Long locationId;
 
-    public Exponent(Long id, String name, String description, Date createDate, Long categoryId, Long locationId) {
+    public Exponent(Long id, String name, Long categoryId, Long locationId) {
         this.id = id;
         this.name = name;
-        this.description = description;
-        this.createDate = createDate;
         this.categoryId = categoryId;
         this.locationId = locationId;
     }
@@ -36,22 +32,6 @@ public class Exponent {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Date getCreateDate() {
-        return createDate;
-    }
-
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
     }
 
     public Long getCategoryId() {

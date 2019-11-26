@@ -1,7 +1,7 @@
 <component name="libraryTable">
-  <library name="h2-1.4.200">
+  <library name="org.h2.Driver">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/lib/h2-1.4.200.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/org.h2.Driver.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

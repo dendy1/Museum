@@ -17,10 +17,10 @@ public class LocationRepository implements Repository<Location> {
 
     public LocationRepository() {
         locations = new ArrayList<Location>();
-        locations.add(new Location(0L, "Location 1", "Address for location 1", "Хранилище"));
-        locations.add(new Location(1L, "Location 2", "Address for location 2", "Хранилище"));
-        locations.add(new Location(2L, "Зал музея 1", "Зал №1", "Зал"));
-        locations.add(new Location(3L, "Зал музея 2", "Зал №2", "Зал"));
+        locations.add(new Location(0L, "Location 1"));
+        locations.add(new Location(1L, "Location 2"));
+        locations.add(new Location(2L, "Зал музея 1"));
+        locations.add(new Location(3L, "Зал музея 2"));
     }
 
     public ArrayList<Location> getAll() {
@@ -35,25 +35,32 @@ public class LocationRepository implements Repository<Location> {
         return null;
     }
 
-    public void create(Location item) {
+    public Boolean create(Location item) {
         locations.add(item);
+        return true;
     }
 
-    public void delete(Long id) {
+    public Boolean delete(Long id) {
         for (int i = 0; i < locations.size(); i++) {
             if (locations.get(i).getId().equals(id)) {
                 locations.remove(i);
-                return;
+                return true;
             }
         }
+        return false;
     }
 
-    public void update(Location item) {
+    public Boolean update(Location item) {
         for (int i = 0; i < locations.size(); i++) {
             if (locations.get(i).getId().equals(item.getId())) {
                 locations.set(i, item);
-                return;
+                return true;
             }
         }
+        return false;
+    }
+
+    public Long getCount() {
+        return (long)locations.size();
     }
 }

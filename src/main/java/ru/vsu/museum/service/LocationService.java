@@ -2,16 +2,20 @@ package ru.vsu.museum.service;
 
 import ru.vsu.museum.domain.Exponent;
 import ru.vsu.museum.domain.Location;
+import ru.vsu.museum.persistence.Repository;
+import ru.vsu.museum.persistence.repositories.db.DBExponentRepository;
+import ru.vsu.museum.persistence.repositories.db.DBLocationRepository;
 import ru.vsu.museum.persistence.repositories.inMemory.ExponentRepository;
 import ru.vsu.museum.persistence.repositories.inMemory.LocationRepository;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class LocationService {
-    private LocationRepository locationRepository = LocationRepository.getInstance();
-    private ExponentRepository exponentRepository = ExponentRepository.getInstance();
+    private Repository<Location> locationRepository = new DBLocationRepository();
+    private Repository<Exponent> exponentRepository = new DBExponentRepository();
 
-    public ArrayList<Location> getAll() {
+    public List<Location> getAll() {
         return locationRepository.getAll();
     }
 

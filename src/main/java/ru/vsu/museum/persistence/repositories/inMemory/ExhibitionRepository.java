@@ -20,7 +20,7 @@ public class ExhibitionRepository implements Repository<Exhibition> {
         exhibitions = new ArrayList<Exhibition>();
         for (long i = 0; i < 2; i++)
         {
-            exhibitions.add(new Exhibition(i, new Date(), new Date(), "Exhibiton " + i, "Russia", "Valeriy Albertovich"));
+            exhibitions.add(new Exhibition(i, new Date(), "Exhibiton " + i));
         }
     }
 
@@ -36,25 +36,32 @@ public class ExhibitionRepository implements Repository<Exhibition> {
         return null;
     }
 
-    public void create(Exhibition item) {
+    public Boolean create(Exhibition item) {
         exhibitions.add(item);
+        return true;
     }
 
-    public void delete(Long id) {
+    public Boolean delete(Long id) {
         for (int i = 0; i < exhibitions.size(); i++) {
             if (exhibitions.get(i).getId().equals(id)) {
                 exhibitions.remove(i);
-                return;
+                return true;
             }
         }
+        return false;
     }
 
-    public void update(Exhibition item) {
+    public Boolean update(Exhibition item) {
         for (int i = 0; i < exhibitions.size(); i++) {
             if (exhibitions.get(i).getId().equals(item.getId())) {
                 exhibitions.set(i, item);
-                return;
+                return true;
             }
         }
+        return false;
+    }
+
+    public Long getCount() {
+        return (long)exhibitions.size();
     }
 }

@@ -22,6 +22,7 @@ public class ExhibitionView {
             System.out.println("2. Полная информация о выставке (Введите 2)");
             System.out.println("3. Добавить выставку (Введите 3)");
             System.out.println("4. Удалить выставку (Введите 4)");
+            System.out.println("5. Обновить выставку (Введите 5)");
             System.out.println("10. Выход (Введите 10)");
             System.out.print("Ваш выбор: ");
 
@@ -38,11 +39,8 @@ public class ExhibitionView {
                     Exhibition exhibition = exhibitionService.getById(itemId);
 
                     System.out.println("ID: " + exhibition.getId());
-                    System.out.println("Дата начала: " + exhibition.getStartDate());
-                    System.out.println("Дата конца: " + exhibition.getEndDate());
+                    System.out.println("Дата начала: " + exhibition.getDate());
                     System.out.println("Название: " + exhibition.getName());
-                    System.out.println("Место проведения: " + exhibition.getPlace());
-                    System.out.println("ФИО ответственного: " + exhibition.getHolder());
 
                     System.out.println("Экспонаты: ");
                     for (Exponent exponent: exhibitionService.getExponents(exhibition.getId())) {
@@ -53,33 +51,18 @@ public class ExhibitionView {
                     SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
                     System.out.print("Введите дату начала в формате DD/MM/YYYY: ");
                     scanner.nextLine();
-                    Date startDate;
+                    Date date;
                     try {
-                        startDate = dateFormat.parse(scanner.nextLine());
+                        date = dateFormat.parse(scanner.nextLine());
                     } catch (ParseException e) {
                         System.out.print("Неправильно введена дата, попробуйте ещё");
                         break;
                     }
 
-                    System.out.print("Введите дату конца в формате DD/MM/YYYY: ");
-                    Date endDate;
-                    try {
-                        endDate = dateFormat.parse(scanner.nextLine());
-                    } catch (ParseException e) {
-                        System.out.print("Неправильно введена дата, попробуйте ещё");
-                        break;
-                    }
-
-                    System.out.print("Введите имя: ");
+                    System.out.print("Введите название: ");
                     String name = scanner.nextLine();
 
-                    System.out.print("Введите место проведения: ");
-                    String place = scanner.nextLine();
-
-                    System.out.print("Введите ФИО ответсвенного: ");
-                    String holder = scanner.nextLine();
-
-                    exhibitionService.add(new Exhibition(exhibitionService.getLastId() + 1, startDate, endDate, name, place, holder));
+                    exhibitionService.add(new Exhibition(exhibitionService.getLastId() + 1, date, name));
 
                     while(scanner.nextInt() != -1) {
                         printAllExponents();
@@ -95,6 +78,25 @@ public class ExhibitionView {
                     itemId = scanner.nextLong();
                     exhibitionService.deleteById(itemId);
                     break;
+                case 5:
+                    dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                    printAllExhibitions();
+                    System.out.print("Введите ID: ");
+                    itemId = scanner.nextLong();
+
+                    System.out.print("Введите дату начала в формате DD/MM/YYYY: ");
+                    try {
+                        date = dateFormat.parse(scanner.nextLine());
+                    } catch (ParseException e) {
+                        System.out.print("Неправильно введена дата, попробуйте ещё");
+                        break;
+                    }
+
+                    System.out.print("Введите Имя: ");
+                    String newName = scanner.nextLine();
+
+                    exhibitionService.update(new Exhibition(itemId, date, newName));
+                    break;
                 case 10:
                     return;
             }
@@ -103,7 +105,7 @@ public class ExhibitionView {
 
     private void printAllExhibitions() {
         for (Exhibition exhibition: exhibitionService.getAll()) {
-            System.out.println(exhibition.getId() + ". " + exhibition.getName() + "; " + exhibition.getPlace() + "; (" + exhibition.getStartDate() + ")--(" + exhibition.getEndDate() + ")");
+            System.out.println(exhibition.getId() + ". " + exhibition.getName() + "; " + exhibition.getDate());
         }
     }
 

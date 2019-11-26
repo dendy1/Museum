@@ -20,7 +20,7 @@ public class ExponentRepository implements Repository<Exponent> {
         exponents = new ArrayList<Exponent>();
         for (long i = 0; i < 10; i++)
         {
-            exponents.add(new Exponent(i, "Exponent " + i, "Description for exponent " + i, new Date(), i % 2, i % 4));
+            exponents.add(new Exponent(i, "Exponent " + i, i % 2, i % 4));
         }
     }
 
@@ -36,25 +36,32 @@ public class ExponentRepository implements Repository<Exponent> {
         return null;
     }
 
-    public void create(Exponent item) {
+    public Boolean create(Exponent item) {
         exponents.add(item);
+        return true;
     }
 
-    public void delete(Long id) {
+    public Boolean delete(Long id) {
         for (int i = 0; i < exponents.size(); i++) {
             if (exponents.get(i).getId().equals(id)) {
                 exponents.remove(i);
-                return;
+                return true;
             }
         }
+        return false;
     }
 
-    public void update(Exponent item) {
+    public Boolean update(Exponent item) {
         for (int i = 0; i < exponents.size(); i++) {
             if (exponents.get(i).getId().equals(item.getId())) {
                 exponents.set(i, item);
-                return;
+                return true;
             }
         }
+        return false;
+    }
+
+    public Long getCount() {
+        return (long)exponents.size();
     }
 }

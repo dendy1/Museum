@@ -3,18 +3,23 @@ package ru.vsu.museum.service;
 import ru.vsu.museum.domain.Exhibition;
 import ru.vsu.museum.domain.Exponent;
 import ru.vsu.museum.domain.ExponentOnExhibition;
+import ru.vsu.museum.persistence.Repository;
+import ru.vsu.museum.persistence.repositories.db.DBExhibitionRepository;
+import ru.vsu.museum.persistence.repositories.db.DBExponentRepository;
 import ru.vsu.museum.persistence.repositories.inMemory.ExhibitionRepository;
 import ru.vsu.museum.persistence.repositories.inMemory.ExponentOnExhibitionRepository;
 import ru.vsu.museum.persistence.repositories.inMemory.ExponentRepository;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ExhibitionService {
-    private ExponentRepository exponentRepository = ExponentRepository.getInstance();
-    private ExhibitionRepository exhibitionRepository = ExhibitionRepository.getInstance();
-    private ExponentOnExhibitionRepository exponentOnExhibitionRepository = ExponentOnExhibitionRepository.getInstance();
+    private Repository<Exponent> exponentRepository = new DBExponentRepository();
+    private Repository<Exhibition> exhibitionRepository = new DBExhibitionRepository();
 
-    public ArrayList<Exhibition> getAll() {
+    private Repository<ExponentOnExhibition> exponentOnExhibitionRepository = ExponentOnExhibitionRepository.getInstance();
+
+    public List<Exhibition> getAll() {
         return exhibitionRepository.getAll();
     }
 
@@ -58,13 +63,17 @@ public class ExhibitionService {
         return id;
     }
 
-    public ArrayList<Exponent> getExponents(Long id) {
-        ArrayList<Exponent> exponents = new ArrayList<Exponent>();
+    public List<Exponent> getExponents(Long id) {
+        List<Exponent> exponents = new ArrayList<Exponent>();
         for (ExponentOnExhibition exponentAuthor: exponentOnExhibitionRepository.getAll()) {
             if (exponentAuthor.getExhibitionId().equals(id)) {
                 exponents.add(exponentRepository.getById(exponentAuthor.getExponentId()));
             }
         }
         return exponents;
+    }
+
+    public void update(Exhibition item) {
+        exhibitionRepository.update(item);
     }
 }

@@ -19,6 +19,7 @@ public class CategoryView {
             System.out.println("2. Полная информация о категории категории (Введите 2)");
             System.out.println("3. Добавить категорию (Введите 3)");
             System.out.println("4. Удалить категорию (Введите 4)");
+            System.out.println("5. Обновить категорию (Введите 5)");
             System.out.println("10. Выход (Введите 10)");
             System.out.print("Ваш выбор: ");
 
@@ -54,6 +55,20 @@ public class CategoryView {
                     System.out.print("Введите ID: ");
                     long itemId = scanner.nextLong();
                     categoryService.deleteById(itemId);
+                    break;
+                case 5:
+                    printAllCategories();
+                    System.out.print("Введите ID: ");
+                    itemId = scanner.nextLong();
+
+                    System.out.print("Введите Имя: ");
+                    scanner.nextLine();
+                    String newName = scanner.nextLine();
+
+                    System.out.print("Введите Описание: ");
+                    String newDescr = scanner.nextLine();
+
+                    categoryService.update(new Category(itemId, newName, newDescr));
                     break;
                 case 10:
                     return;

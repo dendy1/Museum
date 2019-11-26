@@ -6,6 +6,7 @@ import ru.vsu.museum.service.CategoryService;
 import ru.vsu.museum.service.LocationService;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class LocationView {
@@ -37,8 +38,6 @@ public class LocationView {
 
                     System.out.println("ID: " + location.getId());
                     System.out.println("Имя: " + location.getName());
-                    System.out.println("Адрес: " + location.getAddress());
-                    System.out.println("Тип: " + location.getType());
 
                     break;
                 case 3:
@@ -46,13 +45,7 @@ public class LocationView {
                     scanner.nextLine();
                     String name = scanner.nextLine();
 
-                    System.out.print("Введите Адрес: ");
-                    String address = scanner.nextLine();
-
-                    System.out.print("Введите Тип: ");
-                    String type = scanner.nextLine();
-
-                    locationService.add(new Location(locationService.getLastId() + 1, name, address, type));
+                    locationService.add(new Location(locationService.getLastId() + 1, name));
                     break;
                 case 4:
                     printAllLocations();
@@ -69,13 +62,7 @@ public class LocationView {
                     scanner.nextLine();
                     String newName = scanner.nextLine();
 
-                    System.out.print("Введите Адрес: ");
-                    String newAddress = scanner.nextLine();
-
-                    System.out.print("Введите Тип: ");
-                    String newType = scanner.nextLine();
-
-                    locationService.update(new Location(itemId, newName, newAddress, newType));
+                    locationService.update(new Location(itemId, newName));
                     break;
                 case 10:
                     return;
@@ -84,9 +71,9 @@ public class LocationView {
     }
 
     private void printAllLocations() {
-        ArrayList<Location> locations = locationService.getAll();
+        List<Location> locations = locationService.getAll();
         for (Location location: locations) {
-            System.out.println(location.getId() + ". " + location.getName() + "; " + location.getAddress() + "; " + location.getType());
+            System.out.println(location.getId() + ". " + location.getName());
         }
     }
 }

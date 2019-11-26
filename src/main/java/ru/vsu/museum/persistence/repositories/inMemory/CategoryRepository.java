@@ -36,25 +36,32 @@ public class CategoryRepository implements Repository<Category> {
         return null;
     }
 
-    public void create(Category item) {
+    public Boolean create(Category item) {
         categories.add(item);
+        return true;
     }
 
-    public void delete(Long id) {
+    public Boolean delete(Long id) {
         for (int i = 0; i < categories.size(); i++) {
             if (categories.get(i).getId().equals(id)) {
                 categories.remove(i);
-                return;
+                return true;
             }
         }
+        return false;
     }
 
-    public void update(Category item) {
+    public Boolean update(Category item) {
         for (int i = 0; i < categories.size(); i++) {
             if (categories.get(i).getId().equals(item.getId())) {
                 categories.set(i, item);
-                return;
+                return true;
             }
         }
+        return false;
+    }
+
+    public Long getCount() {
+        return (long)categories.size();
     }
 }
