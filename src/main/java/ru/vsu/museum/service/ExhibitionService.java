@@ -5,6 +5,7 @@ import ru.vsu.museum.domain.Exponent;
 import ru.vsu.museum.domain.ExponentOnExhibition;
 import ru.vsu.museum.persistence.Repository;
 import ru.vsu.museum.persistence.repositories.db.DBExhibitionRepository;
+import ru.vsu.museum.persistence.repositories.db.DBExponentOnExhibitionRepository;
 import ru.vsu.museum.persistence.repositories.db.DBExponentRepository;
 import ru.vsu.museum.persistence.repositories.inMemory.ExponentOnExhibitionRepository;
 
@@ -14,8 +15,7 @@ import java.util.List;
 public class ExhibitionService {
     private Repository<Exponent> exponentRepository = new DBExponentRepository();
     private Repository<Exhibition> exhibitionRepository = new DBExhibitionRepository();
-
-    private Repository<ExponentOnExhibition> exponentOnExhibitionRepository = ExponentOnExhibitionRepository.getInstance();
+    private Repository<ExponentOnExhibition> exponentOnExhibitionRepository = new DBExponentOnExhibitionRepository();
 
     public List<Exhibition> getAll() {
         return exhibitionRepository.getAll();
@@ -48,7 +48,7 @@ public class ExhibitionService {
                 id = exponentOnExhibition.getId();
         }
 
-        exponentOnExhibitionRepository.create(new ExponentOnExhibition(id, exponentId, exhibitionId));
+        exponentOnExhibitionRepository.create(new ExponentOnExhibition(id + 1L, exhibitionId, exponentId));
     }
 
     public long getLastId()
@@ -61,11 +61,11 @@ public class ExhibitionService {
         return id;
     }
 
-    public List<Exponent> getExponents(Long id) {
+    public List<Exponent> getExponents(Long exhibitionId) {
         List<Exponent> exponents = new ArrayList<Exponent>();
-        for (ExponentOnExhibition exponentAuthor: exponentOnExhibitionRepository.getAll()) {
-            if (exponentAuthor.getExhibitionId().equals(id)) {
-                exponents.add(exponentRepository.getById(exponentAuthor.getExponentId()));
+        for (ExponentOnExhibition exponentOnExhibition: exponentOnExhibitionRepository.getAll()) {
+            if (exponentOnExhibition.getExhibitionId().equals(exhibitionId)) {
+                exponents.add(exponentRepository.getById(exponentOnExhibition.getExponentId()));
             }
         }
         return exponents;
@@ -73,5 +73,10 @@ public class ExhibitionService {
 
     public void update(Exhibition item) {
         exhibitionRepository.update(item);
+    }
+
+    public Long getCount()
+    {
+        return exhibitionRepository.getCount();
     }
 }

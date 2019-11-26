@@ -1,0 +1,40 @@
+2019-11-26 18:34:09 jdbc[50]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "EXPONENT" уже существует
+Table "EXPONENT" already exists; SQL statement:
+CREATE TABLE exponent (exponentId BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT, name VARCHAR(100) NOT NULL, categoryId BIGINT NOT NULL, locationId BIGINT NOT NULL) [42101-200]
+2019-11-26 18:34:09 jdbc[48]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "CATEGORY" уже существует
+Table "CATEGORY" already exists; SQL statement:
+CREATE TABLE category (categoryId BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT, name VARCHAR(100) NOT NULL, description VARCHAR(200) NOT NULL) [42101-200]
+2019-11-26 18:34:09 jdbc[47]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "EXPONENT" уже существует
+Table "EXPONENT" already exists; SQL statement:
+CREATE TABLE exponent (exponentId BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT, name VARCHAR(100) NOT NULL, categoryId BIGINT NOT NULL, locationId BIGINT NOT NULL) [42101-200]
+2019-11-26 18:34:09 jdbc[45]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "EXPONENT" уже существует
+Table "EXPONENT" already exists; SQL statement:
+CREATE TABLE exponent (exponentId BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT, name VARCHAR(100) NOT NULL, categoryId BIGINT NOT NULL, locationId BIGINT NOT NULL) [42101-200]
+2019-11-26 18:34:09 jdbc[44]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "EXPONENT" уже существует
+Table "EXPONENT" already exists; SQL statement:
+CREATE TABLE exponent (exponentId BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT, name VARCHAR(100) NOT NULL, categoryId BIGINT NOT NULL, locationId BIGINT NOT NULL) [42101-200]
+2019-11-26 18:34:09 jdbc[42]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "EXPONENT_ON_EXHIBITION" уже существует
+Table "EXPONENT_ON_EXHIBITION" already exists; SQL statement:
+CREATE TABLE exponent_on_exhibition (id BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT, exhibitionId BIGINT NOT NULL, exponentId BIGINT NOT NULL) [42101-200]
+2019-11-26 18:34:09 jdbc[41]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "EXPONENT" уже существует
+Table "EXPONENT" already exists; SQL statement:
+CREATE TABLE exponent (exponentId BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT, name VARCHAR(100) NOT NULL, categoryId BIGINT NOT NULL, locationId BIGINT NOT NULL) [42101-200]
+2019-11-26 18:34:09 jdbc[40]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "EXPONENT_ON_EXHIBITION" уже существует
+Table "EXPONENT_ON_EXHIBITION" already exists; SQL statement:
+CREATE TABLE exponent_on_exhibition (id BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT, exhibitionId BIGINT NOT NULL, exponentId BIGINT NOT NULL) [42101-200]
+2019-11-26 18:34:09 jdbc[39]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "LOCATION" уже существует
+Table "LOCATION" already exists; SQL statement:
+CREATE TABLE location (locationId BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT, name VARCHAR(100) NOT NULL) [42101-200]
+2019-11-26 18:34:09 jdbc[38]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "EXPONENT" уже существует
+Table "EXPONENT" already exists; SQL statement:
+CREATE TABLE exponent (exponentId BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT, name VARCHAR(100) NOT NULL, categoryId BIGINT NOT NULL, locationId BIGINT NOT NULL) [42101-200]

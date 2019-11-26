@@ -1,15 +1,11 @@
 package ru.vsu.museum.persistence.repositories.db;
 
-import ru.vsu.museum.Config;
-import ru.vsu.museum.connectionPool.BasicConnectionPool;
-import ru.vsu.museum.connectionPool.ConnectionPool;
 import ru.vsu.museum.connectionPool.PoolManager;
 import ru.vsu.museum.domain.Category;
 import ru.vsu.museum.persistence.Repository;
 import ru.vsu.museum.persistence.repositories.TableUtils;
 
 import java.sql.*;
-import java.util.ArrayList;
 import java.util.List;
 
 public class DBCategoryRepository implements Repository<Category> {
@@ -88,7 +84,7 @@ public class DBCategoryRepository implements Repository<Category> {
     @Override
     public boolean delete(Long id) {
         try (Connection connection = PoolManager.getInstance().getConnection();) {
-            return TableUtils.createDeletePreparedStatement(connection, Category.class, "category", "categoryId="+id);
+            return TableUtils.deleteQuery(connection, Category.class, "category", "categoryId="+id);
         } catch (SQLException e) {
             System.out.println("Connection error. " + e.getMessage());
         }

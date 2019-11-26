@@ -1,6 +1,5 @@
 package ru.vsu.museum.persistence.repositories.db;
 
-import ru.vsu.museum.Config;
 import ru.vsu.museum.connectionPool.PoolManager;
 import ru.vsu.museum.domain.Exhibition;
 import ru.vsu.museum.domain.Exponent;
@@ -8,7 +7,6 @@ import ru.vsu.museum.persistence.Repository;
 import ru.vsu.museum.persistence.repositories.TableUtils;
 
 import java.sql.*;
-import java.util.ArrayList;
 import java.util.List;
 
 public class DBExponentRepository implements Repository<Exponent> {
@@ -25,7 +23,7 @@ public class DBExponentRepository implements Repository<Exponent> {
     private void createTable()
     {
         try (
-                Connection connection = DriverManager.getConnection(Config.URL, Config.USER, Config.PASSWORD);
+                Connection connection = PoolManager.getInstance().getConnection();
                 Statement statement = connection.createStatement();
         ) {
             statement.execute("CREATE TABLE exponent (" +
@@ -95,7 +93,7 @@ public class DBExponentRepository implements Repository<Exponent> {
     @Override
     public boolean delete(Long id) {
         try (Connection connection = PoolManager.getInstance().getConnection();) {
-            return TableUtils.createDeletePreparedStatement(connection, Exhibition.class, "exponent",
+            return TableUtils.deleteQuery(connection, Exhibition.class, "exponent",
                     "exponentId="+id);
         } catch (SQLException e) {
             System.out.println("Connection error. " + e.getMessage());

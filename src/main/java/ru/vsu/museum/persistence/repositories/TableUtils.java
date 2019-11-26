@@ -123,7 +123,7 @@ public class TableUtils {
         return statement;
     }
 
-    public static <T> boolean createDeletePreparedStatement(Connection connection, Class<T> type, String tableName, String where)
+    public static <T> boolean deleteQuery(Connection connection, Class<T> type, String tableName, String where)
             throws SQLException
     {
         List<T> list = new ArrayList<T>();

@@ -50,6 +50,7 @@ public class ExhibitionView {
                 case 3:
                     SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
                     System.out.print("Введите дату начала в формате DD/MM/YYYY: ");
+                    scanner.nextLine();
                     Date date;
                     try {
                         date = dateFormat.parse(scanner.nextLine());
@@ -63,12 +64,13 @@ public class ExhibitionView {
 
                     exhibitionService.add(new Exhibition(exhibitionService.getLastId() + 1, date, name));
 
-                    while(scanner.nextInt() != -1) {
+                    while (true) {
                         printAllExponents();
                         System.out.print("Введите id экспоната. Введите -1, если хотите завершить: ");
-                        scanner.nextLine();
                         long exponentId = scanner.nextLong();
-                        exhibitionService.addExponent(exhibitionService.getLastId() + 1, exponentId);
+                        if (exponentId == -1)
+                            break;
+                        exhibitionService.addExponent(exhibitionService.getCount(), exponentId);
                     }
                     break;
                 case 4:

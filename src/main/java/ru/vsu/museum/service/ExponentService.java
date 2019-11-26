@@ -11,7 +11,7 @@ import java.util.List;
 
 public class ExponentService {
     private Repository<Exponent> exponentRepository = new DBExponentRepository();
-    private Repository<ExponentOnExhibition> exponentOnExhibitionRepository = ExponentOnExhibitionRepository.getInstance();
+    private Repository<ExponentOnExhibition> exponentOnExhibitionRepository = new DBExponentOnExhibitionRepository();
 
     public List<Exponent> getAll() {
         return exponentRepository.getAll();

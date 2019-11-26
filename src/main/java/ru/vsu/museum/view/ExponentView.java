@@ -94,8 +94,7 @@ public class ExponentView {
         }
     }
 
-    private void printAllExponents()
-    {
+    private void printAllExponents() {
         List<Exponent> exponents = exponentService.getAll();
         for (Exponent exponent: exponents) {
             System.out.println(exponent.getExponentId() + ". " + exponent.getName());

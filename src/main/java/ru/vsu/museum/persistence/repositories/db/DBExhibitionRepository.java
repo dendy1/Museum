@@ -1,15 +1,11 @@
 package ru.vsu.museum.persistence.repositories.db;
 
-import ru.vsu.museum.Config;
-import ru.vsu.museum.connectionPool.ConnectionPool;
 import ru.vsu.museum.connectionPool.PoolManager;
 import ru.vsu.museum.domain.Exhibition;
 import ru.vsu.museum.persistence.Repository;
 import ru.vsu.museum.persistence.repositories.TableUtils;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class DBExhibitionRepository implements Repository<Exhibition> {
@@ -26,7 +22,7 @@ public class DBExhibitionRepository implements Repository<Exhibition> {
     private void createTable()
     {
         try (
-                Connection connection = DriverManager.getConnection(Config.URL, Config.USER, Config.PASSWORD);
+                Connection connection = PoolManager.getInstance().getConnection();
                 Statement statement = connection.createStatement();
         ) {
             statement.execute("CREATE TABLE exhibition (" +
@@ -89,7 +85,7 @@ public class DBExhibitionRepository implements Repository<Exhibition> {
     @Override
     public boolean delete(Long id) {
         try (Connection connection = PoolManager.getInstance().getConnection();) {
-            return TableUtils.createDeletePreparedStatement(connection, Exhibition.class, "exhibition",
+            return TableUtils.deleteQuery(connection, Exhibition.class, "exhibition",
                     "exhibitionId="+id);
         } catch (SQLException e) {
             System.out.println("Connection error. " + e.getMessage());

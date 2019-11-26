@@ -46,7 +46,7 @@ public class CategoryView {
                     System.out.print("Введите Описание: ");
                     String description = scanner.nextLine();
 
-                    categoryService.add(new Category(categoryService.getLastId() + 1, name, description));
+                    categoryService.add(new Category(null, name, description));
                     break;
                 case 4:
                     printAllCategories();
