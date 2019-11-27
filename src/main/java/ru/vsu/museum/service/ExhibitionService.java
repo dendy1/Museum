@@ -4,36 +4,35 @@ import ru.vsu.museum.domain.Exhibition;
 import ru.vsu.museum.domain.Exponent;
 import ru.vsu.museum.domain.ExponentOnExhibition;
 import ru.vsu.museum.persistence.Repository;
-import ru.vsu.museum.persistence.repositories.db.DBExhibitionRepository;
-import ru.vsu.museum.persistence.repositories.db.DBExponentOnExhibitionRepository;
-import ru.vsu.museum.persistence.repositories.db.DBExponentRepository;
-import ru.vsu.museum.persistence.repositories.inMemory.ExponentOnExhibitionRepository;
+import ru.vsu.museum.persistence.repositories.db.DBRepository;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class ExhibitionService {
-    private Repository<Exponent> exponentRepository = new DBExponentRepository();
-    private Repository<Exhibition> exhibitionRepository = new DBExhibitionRepository();
-    private Repository<ExponentOnExhibition> exponentOnExhibitionRepository = new DBExponentOnExhibitionRepository();
+    private Repository<Exponent> exponentRepository =
+            new DBRepository<Exponent>(Exponent.class, "exponent", "exponentId");
+    private Repository<Exhibition> exhibitionRepository =
+            new DBRepository<Exhibition>(Exhibition.class, "exhibition", "exhibitionId");
+    private Repository<ExponentOnExhibition> exponentOnExhibitionRepository =
+            new DBRepository<ExponentOnExhibition>(ExponentOnExhibition.class,
+                    "exponent_on_exhibition", "id");
 
     public List<Exhibition> getAll() {
-        return exhibitionRepository.getAll();
+        return exhibitionRepository.getAll(null);
     }
 
     public Exhibition getById(long id) {
         return exhibitionRepository.getById(id);
     }
 
-    public void deleteById(long id) {
-        for (ExponentOnExhibition exponentOnExhibition : exponentOnExhibitionRepository.getAll()) {
-            if (exponentOnExhibition.getExhibitionId().equals(id))
-            {
-                exponentOnExhibitionRepository.delete(exponentOnExhibition.getId());
-                break;
-            }
+    public void deleteById(long exhibitionId) {
+        for (ExponentOnExhibition exponentOnExhibition :
+                exponentOnExhibitionRepository.getAll("exhibitionId"+exhibitionId)) {
+            exponentOnExhibitionRepository.delete(exponentOnExhibition.getId());
         }
-        exhibitionRepository.delete(id);
+        exhibitionRepository.delete(exhibitionId);
     }
 
     public void add(Exhibition item) {
@@ -42,28 +41,14 @@ public class ExhibitionService {
 
     public void addExponent(long exhibitionId, long exponentId)
     {
-        long id = 0;
-        for (ExponentOnExhibition exponentOnExhibition: exponentOnExhibitionRepository.getAll()) {
-            if (exponentOnExhibition.getId() > id)
-                id = exponentOnExhibition.getId();
-        }
-
-        exponentOnExhibitionRepository.create(new ExponentOnExhibition(id + 1L, exhibitionId, exponentId));
-    }
-
-    public long getLastId()
-    {
-        long id = 0;
-        for (Exhibition exhibition: exhibitionRepository.getAll()) {
-            if (exhibition.getExhibitionId() > id)
-                id = exhibition.getExhibitionId();
-        }
-        return id;
+        exponentOnExhibitionRepository.create(
+                new ExponentOnExhibition(
+                        exponentOnExhibitionRepository.getCount() + 1, exhibitionId, exponentId));
     }
 
     public List<Exponent> getExponents(Long exhibitionId) {
         List<Exponent> exponents = new ArrayList<Exponent>();
-        for (ExponentOnExhibition exponentOnExhibition: exponentOnExhibitionRepository.getAll()) {
+        for (ExponentOnExhibition exponentOnExhibition: exponentOnExhibitionRepository.getAll(null)) {
             if (exponentOnExhibition.getExhibitionId().equals(exhibitionId)) {
                 exponents.add(exponentRepository.getById(exponentOnExhibition.getExponentId()));
             }

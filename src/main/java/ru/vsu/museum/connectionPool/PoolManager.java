@@ -1,36 +1,32 @@
 package ru.vsu.museum.connectionPool;
 
+import ru.vsu.museum.Config;
+
 import java.sql.Connection;
 import java.sql.SQLException;
 
 public class PoolManager {
-    private static PoolManager instance;
-    private ConnectionPool connectionPool;
+    private static ConnectionPool connectionPool;
 
-    public static PoolManager getInstance()
-    {
-        if (instance == null) {
-            instance = new PoolManager();
-
-            try {
-                instance.connectionPool = BasicConnectionPool.create("jdbc:h2:./museum", "sa", "sa");
-            } catch (SQLException e) {
-                System.out.println("Connection error. " + e.getMessage());
-            }
+    public static Connection getConnection() throws SQLException {
+        if (connectionPool == null) {
+            connectionPool = BasicConnectionPool.create(Config.URL, Config.USER, Config.PASSWORD);
         }
-        return instance;
+
+        return connectionPool.getConnection();
     }
 
-    public Connection getConnection() throws SQLException {
-        return this.connectionPool.getConnection();
+    public static boolean releaseConnection(Connection connection) throws SQLException {
+        if (connectionPool == null) {
+            connectionPool = BasicConnectionPool.create(Config.URL, Config.USER, Config.PASSWORD);
+        }
+
+        return connectionPool.releaseConnection(connection);
     }
 
-    public boolean releaseConnection(Connection connection)
-    {
-        return this.connectionPool.releaseConnection(connection);
-    }
-
-    public void shutdown() throws SQLException {
-        this.connectionPool.shutdown();
+    public static void shutdown() throws SQLException {
+        if (connectionPool != null) {
+            connectionPool.shutdown();
+        }
     }
 }

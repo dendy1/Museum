@@ -42,7 +42,7 @@ public class LocationView {
                     scanner.nextLine();
                     String name = scanner.nextLine();
 
-                    locationService.add(new Location(locationService.getLastId() + 1, name));
+                    locationService.add(new Location(null, name));
                     break;
                 case 4:
                     printAllLocations();

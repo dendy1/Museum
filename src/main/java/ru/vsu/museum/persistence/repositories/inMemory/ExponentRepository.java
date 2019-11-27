@@ -4,8 +4,11 @@ import ru.vsu.museum.domain.Exponent;
 import ru.vsu.museum.persistence.Repository;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ExponentRepository implements Repository<Exponent> {
+    private Long lastId;
+
     private static ExponentRepository instance;
     public static ExponentRepository getInstance() {
         if (instance == null) {
@@ -21,10 +24,12 @@ public class ExponentRepository implements Repository<Exponent> {
         {
             exponents.add(new Exponent(i, "Exponent " + i, i % 2, i % 4));
         }
+        lastId = getCount();
     }
 
-    public ArrayList<Exponent> getAll() {
-        return exponents;
+    @Override
+    public List<Exponent> getAll(String where) {
+        return null;
     }
 
     public Exponent getById(Long id) {
@@ -36,6 +41,7 @@ public class ExponentRepository implements Repository<Exponent> {
     }
 
     public boolean create(Exponent item) {
+        item.setExponentId(++lastId);
         exponents.add(item);
         return true;
     }

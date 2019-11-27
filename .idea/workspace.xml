@@ -3,23 +3,50 @@
   <component name="ChangeListManager">
     <list default="true" id="5190b7f0-5f24-4b88-b358-aa2a929e17e4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/museum.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/museum.mv.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/museum.trace.db" beforeDir="false" afterPath="$PROJECT_DIR$/museum.trace.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/connectionPool/BasicConnectionPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/connectionPool/BasicConnectionPool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/db/DBExhibitionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/db/DBExhibitionRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/db/DBExponentOnExhibitionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/db/DBExponentOnExhibitionRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/db/DBExponentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/db/DBExponentRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/db/DBLocationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/db/DBLocationRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/connectionPool/PoolManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/connectionPool/PoolManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/Repository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/Repository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/TableUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/TableUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/db/DBCategoryRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/db/DBExhibitionRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/db/DBExponentOnExhibitionRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/db/DBExponentRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/db/DBLocationRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/inMemory/CategoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/inMemory/CategoryRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/inMemory/ExhibitionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/inMemory/ExhibitionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/inMemory/ExponentOnExhibitionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/inMemory/ExponentOnExhibitionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/inMemory/ExponentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/inMemory/ExponentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/inMemory/LocationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/inMemory/LocationRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/service/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/service/CategoryService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/service/ExhibitionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/service/ExhibitionService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/service/ExponentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/service/ExponentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/view/CategoryView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/view/CategoryView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/service/LocationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/service/LocationService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/view/ExhibitionView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/view/ExhibitionView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/view/ExponentView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/view/ExponentView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/view/LocationView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/view/LocationView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/view/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/view/MainMenu.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -128,7 +155,8 @@
       <workItem from="1574723722857" duration="3427000" />
       <workItem from="1574759969521" duration="3586000" />
       <workItem from="1574770153836" duration="5244000" />
-      <workItem from="1574775553016" duration="7463000" />
+      <workItem from="1574775553016" duration="12391000" />
+      <workItem from="1574795505958" duration="9472000" />
     </task>
     <servers />
   </component>

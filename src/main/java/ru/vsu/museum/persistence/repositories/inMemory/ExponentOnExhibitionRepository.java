@@ -5,8 +5,11 @@ import ru.vsu.museum.persistence.Repository;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 public class ExponentOnExhibitionRepository implements Repository<ExponentOnExhibition> {
+    private Long lastId;
+
     private static ExponentOnExhibitionRepository instance;
     public static ExponentOnExhibitionRepository getInstance() {
         if (instance == null) {
@@ -20,10 +23,12 @@ public class ExponentOnExhibitionRepository implements Repository<ExponentOnExhi
         for (long i = 0; i < 10; i++) {
             exponentOnExhibitions.add(new ExponentOnExhibition((long)(exponentOnExhibitions.size()), i % 2, i));
         }
+        lastId = getCount();
     }
 
-    public ArrayList<ExponentOnExhibition> getAll() {
-        return exponentOnExhibitions;
+    @Override
+    public List<ExponentOnExhibition> getAll(String where) {
+        return null;
     }
 
     public ExponentOnExhibition getById(Long id) {
@@ -36,6 +41,7 @@ public class ExponentOnExhibitionRepository implements Repository<ExponentOnExhi
     }
 
     public boolean create(ExponentOnExhibition item) {
+        item.setId(++lastId);
         exponentOnExhibitions.add(item);
         return true;
     }

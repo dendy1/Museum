@@ -5,8 +5,10 @@ import ru.vsu.museum.persistence.Repository;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class ExhibitionRepository implements Repository<Exhibition> {
+    private Long lastId;
     private static ExhibitionRepository instance;
     public static ExhibitionRepository getInstance() {
         if (instance == null) {
@@ -22,10 +24,12 @@ public class ExhibitionRepository implements Repository<Exhibition> {
         {
             exhibitions.add(new Exhibition(i, new Date(), "Exhibiton " + i));
         }
+        lastId = getCount();
     }
 
-    public ArrayList<Exhibition> getAll() {
-        return exhibitions;
+    @Override
+    public List<Exhibition> getAll(String where) {
+        return null;
     }
 
     public Exhibition getById(Long id) {
@@ -37,6 +41,7 @@ public class ExhibitionRepository implements Repository<Exhibition> {
     }
 
     public boolean create(Exhibition item) {
+        item.setExhibitionId(++lastId);
         exhibitions.add(item);
         return true;
     }

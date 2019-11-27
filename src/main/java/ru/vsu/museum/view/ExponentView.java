@@ -61,7 +61,7 @@ public class ExponentView {
                     printAllLocations();
                     long locationId = scanner.nextLong();
 
-                    exponentService.add(new Exponent(exponentService.getLastId() + 1, name, categoryId, locationId));
+                    exponentService.add(new Exponent(null, name, categoryId, locationId));
                     break;
                 case 4:
                     printAllExponents();

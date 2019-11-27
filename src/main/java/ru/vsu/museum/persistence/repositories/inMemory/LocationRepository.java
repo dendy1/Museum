@@ -4,8 +4,11 @@ import ru.vsu.museum.domain.Location;
 import ru.vsu.museum.persistence.Repository;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class LocationRepository implements Repository<Location> {
+    private Long lastId;
+
     private static LocationRepository instance;
     public static LocationRepository getInstance() {
         if (instance == null) {
@@ -21,10 +24,12 @@ public class LocationRepository implements Repository<Location> {
         locations.add(new Location(1L, "Location 2"));
         locations.add(new Location(2L, "Зал музея 1"));
         locations.add(new Location(3L, "Зал музея 2"));
+        lastId = getCount();
     }
 
-    public ArrayList<Location> getAll() {
-        return locations;
+    @Override
+    public List<Location> getAll(String where) {
+        return null;
     }
 
     public Location getById(Long id) {
@@ -36,6 +41,7 @@ public class LocationRepository implements Repository<Location> {
     }
 
     public boolean create(Location item) {
+        item.setLocationId(++lastId);
         locations.add(item);
         return true;
     }

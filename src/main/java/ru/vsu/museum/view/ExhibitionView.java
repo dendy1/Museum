@@ -62,7 +62,7 @@ public class ExhibitionView {
                     System.out.print("Введите название: ");
                     String name = scanner.nextLine();
 
-                    exhibitionService.add(new Exhibition(exhibitionService.getLastId() + 1, date, name));
+                    exhibitionService.add(new Exhibition(null, date, name));
 
                     while (true) {
                         printAllExponents();

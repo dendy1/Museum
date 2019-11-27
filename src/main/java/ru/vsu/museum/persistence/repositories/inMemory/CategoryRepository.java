@@ -4,10 +4,11 @@ import ru.vsu.museum.domain.Category;
 import ru.vsu.museum.persistence.Repository;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CategoryRepository implements Repository<Category> {
+    private Long lastId;
     private static CategoryRepository instance;
-
     public static CategoryRepository getInstance() {
         if (instance == null) {
             instance = new CategoryRepository();
@@ -22,10 +23,12 @@ public class CategoryRepository implements Repository<Category> {
         {
             categories.add(new Category(i, "Category " + i, "Description for category " + i));
         }
+        lastId = getCount();
     }
 
-    public ArrayList<Category> getAll() {
-        return categories;
+    @Override
+    public List<Category> getAll(String where) {
+        return null;
     }
 
     public Category getById(Long id) {
@@ -37,6 +40,7 @@ public class CategoryRepository implements Repository<Category> {
     }
 
     public boolean create(Category item) {
+        item.setCategoryId(++lastId);
         categories.add(item);
         return true;
     }

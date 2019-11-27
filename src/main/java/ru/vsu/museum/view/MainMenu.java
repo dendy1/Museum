@@ -37,6 +37,7 @@ public class MainMenu {
                     break;
                 case 10:
                     System.exit(0);
+                    break;
             }
         }
     }

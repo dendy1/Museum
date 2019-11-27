@@ -38,3 +38,12 @@ CREATE TABLE location (locationId BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT, na
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "EXPONENT" уже существует
 Table "EXPONENT" already exists; SQL statement:
 CREATE TABLE exponent (exponentId BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT, name VARCHAR(100) NOT NULL, categoryId BIGINT NOT NULL, locationId BIGINT NOT NULL) [42101-200]
+2019-11-26 19:10:09 jdbc[52]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Объект уже закрыт
+The object is already closed [90007-200]
+2019-11-26 19:11:08 jdbc[52]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Объект уже закрыт
+The object is already closed [90007-200]
+2019-11-26 19:22:43 jdbc[52]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Объект уже закрыт
+The object is already closed [90007-200]
