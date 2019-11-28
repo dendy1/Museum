@@ -47,3 +47,9 @@ The object is already closed [90007-200]
 2019-11-26 19:22:43 jdbc[52]: exception
 org.h2.jdbc.JdbcSQLNonTransientException: Объект уже закрыт
 The object is already closed [90007-200]
+2019-11-27 13:00:47 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Объект уже закрыт
+The object is already closed [90007-200]
+2019-11-27 13:01:14 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Объект уже закрыт
+The object is already closed [90007-200]

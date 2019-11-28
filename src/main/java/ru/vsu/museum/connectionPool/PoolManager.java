@@ -12,7 +12,6 @@ public class PoolManager {
         if (connectionPool == null) {
             connectionPool = BasicConnectionPool.create(Config.URL, Config.USER, Config.PASSWORD);
         }
-
         return connectionPool.getConnection();
     }
 

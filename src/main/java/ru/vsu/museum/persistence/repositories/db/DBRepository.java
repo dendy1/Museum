@@ -5,19 +5,18 @@ import ru.vsu.museum.persistence.Repository;
 import ru.vsu.museum.persistence.repositories.TableUtils;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
 
 public class DBRepository<T> implements Repository<T> {
     private final Class<T> type;
-    private final String tableName;
-    private final String primaryKey;
+    private final String TABLE_NAME;
+    private final String PRIMARY_KEY;
 
     public DBRepository(Class<T> type, String tableName, String primaryKey) {
         this.type = type;
-        this.tableName = tableName;
-        this.primaryKey = primaryKey;
+        this.TABLE_NAME = tableName;
+        this.PRIMARY_KEY = primaryKey;
 
         try {
             Class.forName("org.h2.Driver");
@@ -28,82 +27,35 @@ public class DBRepository<T> implements Repository<T> {
 
     @Override
     public List<T> getAll(String where) {
-        try {
-            Connection connection = PoolManager.getConnection();
-            var result = TableUtils.selectQuery(connection, type, tableName, where);
-            PoolManager.releaseConnection(connection);
-            return result;
-        } catch (SQLException | IllegalAccessException | InstantiationException | NoSuchMethodException e) {
-            System.out.println(e.getMessage());
-        }
-        return null;
+        return TableUtils.selectQuery(type, TABLE_NAME, where);
     }
 
     @Override
     public T getById(Long id) {
-        try {
-            Connection connection = PoolManager.getConnection();
-            List<T> categories = TableUtils.selectQuery(connection, type, tableName,
-                    primaryKey+'='+id);
-            PoolManager.releaseConnection(connection);
-            if (!categories.isEmpty()) {
-                return categories.get(0);
-            }
-        } catch (SQLException | IllegalAccessException | InstantiationException | NoSuchMethodException e) {
-            System.out.println(e.getMessage());
+        List<T> categories = TableUtils.selectQuery(type, TABLE_NAME, PRIMARY_KEY +'='+id);
+        if (categories != null && !categories.isEmpty()) {
+            return categories.get(0);
         }
         return null;
     }
 
     @Override
     public boolean create(T item) {
-        try {
-            Connection connection = PoolManager.getConnection();
-            var result = TableUtils.insertQuery(connection, item, tableName);
-            PoolManager.releaseConnection(connection);
-            return result;
-        } catch (SQLException | IllegalAccessException e) {
-            System.out.println(e.getMessage());
-        }
-        return false;
+        return TableUtils.insertQuery(item, TABLE_NAME);
     }
 
     @Override
     public boolean update(T item) {
-        try  {
-            Connection connection = PoolManager.getConnection();
-            var result = TableUtils.updateQuery(connection, item, tableName, primaryKey);
-            PoolManager.releaseConnection(connection);
-            return result;
-        } catch (SQLException | IllegalAccessException e) {
-            System.out.println(e.getMessage());
-        }
-        return false;
+        return TableUtils.updateQuery(item, TABLE_NAME, PRIMARY_KEY);
     }
 
     @Override
     public boolean delete(Long id) {
-        try {
-            Connection connection = PoolManager.getConnection();
-            var result = TableUtils.deleteQuery(connection, type, tableName, primaryKey+"="+id);
-            PoolManager.releaseConnection(connection);
-            return result;
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-        return false;
+        return TableUtils.deleteQuery(type, TABLE_NAME, PRIMARY_KEY + "=" + id);
     }
 
     @Override
     public Long getCount() {
-        try {
-            Connection connection = PoolManager.getConnection();
-            var result = TableUtils.countQuery(connection, type, tableName);
-            PoolManager.releaseConnection(connection);
-            return result;
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-        return null;
+        return TableUtils.countQuery(type, TABLE_NAME);
     }
 }

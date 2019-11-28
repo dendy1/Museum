@@ -1,5 +1,6 @@
 package ru.vsu.museum.persistence.repositories;
 
+import ru.vsu.museum.connectionPool.ConnectionPool;
 import ru.vsu.museum.connectionPool.PoolManager;
 
 import java.lang.reflect.Field;
@@ -144,72 +145,109 @@ public class TableUtils {
         }
     }
 
-    public static <T> List <T> selectQuery(Connection connection, Class<T> type, String tableName, String where)
-            throws SQLException, IllegalAccessException, InstantiationException, NoSuchMethodException {
+    public static <T> List<T> selectQuery(Class<T> type, String tableName, String where) {
         String sql = "SELECT * FROM " + tableName;
         if(!(where == null || where.isEmpty())) {
             sql += " WHERE " + where;
         }
 
-        Statement statement = connection.createStatement();
-        ResultSet resultSet = statement.executeQuery(sql);
-        List<T> list = new ArrayList<T>();
-        while(resultSet.next()) {
-            T t = type.newInstance();
-            loadResultSetIntoObject(resultSet, t);
-            list.add(t);
+        try {
+            Connection connection = PoolManager.getConnection();
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+
+
+            List<T> list = new ArrayList<T>();
+            while(resultSet.next()) {
+                T t = type.newInstance();
+                loadResultSetIntoObject(resultSet, t);
+                list.add(t);
+            }
+
+            statement.close();
+            PoolManager.releaseConnection(connection);
+
+            return list;
+        } catch (SQLException | IllegalAccessException | InstantiationException e) {
+            e.printStackTrace();
         }
 
-        return list;
+        return null;
     }
 
-    public static <T> boolean deleteQuery(Connection connection, Class<T> type, String tableName,
-                                          String where) throws SQLException {
+    public static <T> boolean deleteQuery(Class<T> type, String tableName, String where) {
         String sql = "DELETE FROM " + tableName;
         if(!(where == null || where.isEmpty())) {
             sql += " WHERE " + where;
         }
 
-        PreparedStatement preparedStatement = connection.prepareStatement(sql);
-        int rows = preparedStatement.executeUpdate();
-        preparedStatement.close();
-        return rows > 0;
-    }
+        try {
+            Connection connection = PoolManager.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            int rows = preparedStatement.executeUpdate();
+            preparedStatement.close();
+            PoolManager.releaseConnection(connection);
 
-    public static <T> boolean updateQuery(Connection connection, T item, String tableName,
-                                          String primaryKey) throws SQLException, IllegalAccessException {
-        PreparedStatement preparedStatement = createUpdatePreparedStatement(connection, item,
-                tableName, primaryKey);
-        int rows = preparedStatement.executeUpdate();
-        preparedStatement.close();
-        return rows > 0;
-    }
-
-    public static <T> boolean insertQuery(Connection connection, T item, String tableName)
-            throws SQLException, IllegalAccessException {
-        PreparedStatement preparedStatement = createInsertPreparedStatement(connection, item,
-                tableName);
-        int rows = preparedStatement.executeUpdate();
-        preparedStatement.close();
-        return rows > 0;
-    }
-
-    public static <T> Long countQuery(Connection connection, Class<T> type, String tableName)
-            throws SQLException
-    {
-        String sql = "SELECT count(1) AS cnt FROM " + tableName;
-        Statement statement = connection.createStatement();
-        ResultSet resultSet = statement.executeQuery(sql);
-
-        List<Long> counts = new ArrayList<Long>();
-        while (resultSet.next()) {
-            Long count = resultSet.getLong("cnt");
-            counts.add(count);
+            return rows > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
 
-        if (!counts.isEmpty())
-            return counts.get(0);
+        return false;
+    }
 
+    public static <T> boolean updateQuery(T item, String tableName, String primaryKey) {
+
+        try {
+            Connection connection = PoolManager.getConnection();
+            PreparedStatement preparedStatement = createUpdatePreparedStatement(connection, item,
+                    tableName, primaryKey);
+            int rows = preparedStatement.executeUpdate();
+            preparedStatement.close();
+            PoolManager.releaseConnection(connection);
+
+            return rows > 0;
+        } catch (SQLException | IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public static <T> boolean insertQuery(T item, String tableName) {
+        try {
+            Connection connection = PoolManager.getConnection();
+            PreparedStatement preparedStatement = createInsertPreparedStatement(connection, item,
+                    tableName);
+            int rows = preparedStatement.executeUpdate();
+            preparedStatement.close();
+            PoolManager.releaseConnection(connection);
+
+            return rows > 0;
+        } catch (SQLException | IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public static <T> Long countQuery(Class<T> type, String tableName) {
+        String sql = "SELECT count(1) AS cnt FROM " + tableName;
+        try {
+            Connection connection = PoolManager.getConnection();
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(sql);
+            PoolManager.releaseConnection(connection);
+
+            List<Long> counts = new ArrayList<Long>();
+            while (resultSet.next()) {
+                Long count = resultSet.getLong("cnt");
+                counts.add(count);
+            }
+
+            if (!counts.isEmpty())
+                return counts.get(0);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 }
