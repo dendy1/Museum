@@ -4,13 +4,11 @@ public class Exponent {
     private Long exponentId;
     private String name;
     private Long categoryId;
-    private Long locationId;
 
-    public Exponent(Long exponentId, String name, Long categoryId, Long locationId) {
+    public Exponent(Long exponentId, String name, Long categoryId) {
         this.exponentId = exponentId;
         this.name = name;
         this.categoryId = categoryId;
-        this.locationId = locationId;
     }
 
     public Exponent() {
@@ -38,13 +36,5 @@ public class Exponent {
 
     public void setCategoryId(Long categoryId) {
         this.categoryId = categoryId;
-    }
-
-    public Long getLocationId() {
-        return locationId;
-    }
-
-    public void setLocationId(Long locationId) {
-        this.locationId = locationId;
     }
 }

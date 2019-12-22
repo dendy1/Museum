@@ -2,10 +2,8 @@ package ru.vsu.museum.view;
 
 import ru.vsu.museum.domain.Category;
 import ru.vsu.museum.domain.Exponent;
-import ru.vsu.museum.domain.Location;
 import ru.vsu.museum.service.CategoryService;
 import ru.vsu.museum.service.ExponentService;
-import ru.vsu.museum.service.LocationService;
 
 import java.util.List;
 import java.util.Scanner;
@@ -14,7 +12,6 @@ public class ExponentView {
     private Scanner scanner = new Scanner(System.in);
     private ExponentService exponentService = new ExponentService();
     private CategoryService categoryService = new CategoryService();
-    private LocationService locationService = new LocationService();
 
     public void show() {
         while (true) {
@@ -45,8 +42,6 @@ public class ExponentView {
                     Category category = categoryService.getById(exponent.getCategoryId());
                     System.out.println("Категория: " + category.getName());
 
-                    Location location = locationService.getById(exponent.getLocationId());
-                    System.out.println("Местоположение: " + location.getName());
                     break;
                 case 3:
                     System.out.print("Введите название: ");
@@ -57,11 +52,7 @@ public class ExponentView {
                     printAllCategories();
                     long categoryId = scanner.nextLong();
 
-                    System.out.println("Введите id местоположения: ");
-                    printAllLocations();
-                    long locationId = scanner.nextLong();
-
-                    exponentService.add(new Exponent(null, name, categoryId, locationId));
+                    exponentService.add(new Exponent(null, name, categoryId));
                     break;
                 case 4:
                     printAllExponents();
@@ -82,11 +73,7 @@ public class ExponentView {
                     printAllCategories();
                     categoryId = scanner.nextLong();
 
-                    System.out.println("Введите id местоположения: ");
-                    printAllLocations();
-                    locationId = scanner.nextLong();
-
-                    exponentService.update(new Exponent(itemId, newName, categoryId, locationId));
+                    exponentService.update(new Exponent(itemId, newName, categoryId));
                     break;
                 case 10:
                     return;
@@ -105,13 +92,6 @@ public class ExponentView {
         List<Category> categories = categoryService.getAll();
         for (Category category: categories) {
             System.out.println(category.getCategoryId() + ". " + category.getName());
-        }
-    }
-
-    private void printAllLocations() {
-        List<Location> locations = locationService.getAll();
-        for (Location location: locations) {
-            System.out.println(location.getLocationId() + ". " + location.getName());
         }
     }
 }

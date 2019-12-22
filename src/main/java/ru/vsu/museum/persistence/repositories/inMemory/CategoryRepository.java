@@ -28,6 +28,11 @@ public class CategoryRepository implements Repository<Category> {
 
     @Override
     public List<Category> getAll(String where) {
+        if (where == null)
+        {
+            return categories;
+        }
+
         return null;
     }
 

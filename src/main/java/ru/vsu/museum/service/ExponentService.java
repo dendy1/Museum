@@ -32,6 +32,7 @@ public class ExponentService {
     }
 
     public void add(Exponent item) {
+        System.out.println("EXPONENT SERVICE ADD");
         exponentRepository.create(item);
     }
 

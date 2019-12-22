@@ -8,7 +8,6 @@ public class MainMenu {
     private CategoryView categoryView = new CategoryView();
     private ExponentView exponentView = new ExponentView();
     private ExhibitionView exhibitionView = new ExhibitionView();
-    private LocationView locationView = new LocationView();
 
     public void show() {
         while (true) {
@@ -16,7 +15,6 @@ public class MainMenu {
             System.out.println("1. Меню категорий (Введите 1)");
             System.out.println("2. Меню экспонатов (Введите 2)");
             System.out.println("3. Меню выставок (Введите 3)");
-            System.out.println("4. Меню местоположений (Введите 4)");
             System.out.println("10. Выход (Введите 10)");
             System.out.print("Ваш выбор: ");
 
@@ -31,9 +29,6 @@ public class MainMenu {
                     break;
                 case 3:
                     exhibitionView.show();
-                    break;
-                case 4:
-                    locationView.show();
                     break;
                 case 10:
                     System.exit(0);

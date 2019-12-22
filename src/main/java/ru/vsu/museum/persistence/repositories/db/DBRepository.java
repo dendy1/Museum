@@ -7,6 +7,7 @@ import ru.vsu.museum.persistence.repositories.TableUtils;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 public class DBRepository<T> implements Repository<T> {
     private final Class<T> type;
@@ -20,6 +21,7 @@ public class DBRepository<T> implements Repository<T> {
 
         try {
             Class.forName("org.h2.Driver");
+            //System.out.println("Driver loaded.");
         } catch (ClassNotFoundException e) {
             System.out.println("Driver not found. (" + e.getMessage() + ")");
         }

@@ -22,7 +22,7 @@ public class ExponentRepository implements Repository<Exponent> {
         exponents = new ArrayList<Exponent>();
         for (long i = 0; i < 10; i++)
         {
-            exponents.add(new Exponent(i, "Exponent " + i, i % 2, i % 4));
+            exponents.add(new Exponent(i, "Exponent " + i, i % 2));
         }
         lastId = getCount();
     }
