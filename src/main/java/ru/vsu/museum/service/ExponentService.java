@@ -24,7 +24,7 @@ public class ExponentService {
 
     public void deleteById(long exponentId) {
         for (ExponentOnExhibition exponentOnExhibition :
-                exponentOnExhibitionRepository.getAll("exponentId"+exponentId)) {
+                exponentOnExhibitionRepository.getAll("exponentId="+exponentId)) {
             exponentOnExhibitionRepository.delete(exponentOnExhibition.getId());
         }
 
@@ -32,7 +32,6 @@ public class ExponentService {
     }
 
     public void add(Exponent item) {
-        System.out.println("EXPONENT SERVICE ADD");
         exponentRepository.create(item);
     }
 

@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title><?php echo $page_title ?></title>
+    <title>Музей</title>
     <!-- Custom fonts for this template-->
     <link href="/public/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="/public/css/nunito.css" rel="stylesheet" type="text/css">
@@ -33,12 +33,6 @@
         </a>
         <!-- Divider -->
         <hr class="sidebar-divider my-0">
-        <!-- Nav Item - Dashboard -->
-        <li class="nav-item active">
-            <a class="nav-link" href="/admin">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Dashboard</span></a>
-        </li>
         <!-- Divider -->
         <hr class="sidebar-divider">
         <!-- Heading -->
@@ -55,8 +49,8 @@
             <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Управление экспонат.:</h6>
-                    <a class="collapse-item" href="/exponents/add"><i class="fas fa-plus-circle"></i> Добавить экспонат</a>
-                    <a class="collapse-item" href="/exponents"><i class="fas fa-list"></i> Просмотреть экспонаты</a>
+                    <a class="collapse-item" href="${pageContext.request.contextPath}/exponent/add"><i class="fas fa-plus-circle"></i> Добавить экспонат</a>
+                    <a class="collapse-item" href="${pageContext.request.contextPath}/exponent/list"><i class="fas fa-list"></i> Просмотреть экспонаты</a>
                 </div>
             </div>
         </li>
@@ -70,8 +64,8 @@
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Управление выстав.:</h6>
-                    <a class="collapse-item" href="/exhibitions/add"><i class="fas fa-plus-circle"></i> Организовать выставку</a>
-                    <a class="collapse-item" href="/exhibitions"><i class="fas fa-list"></i> Посмотреть выставки</a>
+                    <a class="collapse-item" href="${pageContext.request.contextPath}/exhibition/add"><i class="fas fa-plus-circle"></i> Организовать выставку</a>
+                    <a class="collapse-item" href="${pageContext.request.contextPath}/exhibition/list"><i class="fas fa-list"></i> Посмотреть выставки</a>
                 </div>
             </div>
         </li>
@@ -85,8 +79,8 @@
             <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Управление тем. разд.:</h6>
-                    <a class="collapse-item" href="/categories/add"><i class="fas fa-plus-circle"></i> Добавить тем. разд.</a>
-                    <a class="collapse-item" href="/categories"><i class="fas fa-list"></i> Посмотреть тем. разд.</a>
+                    <a class="collapse-item" href="${pageContext.request.contextPath}/category/add"><i class="fas fa-plus-circle"></i> Добавить тем. разд.</a>
+                    <a class="collapse-item" href="${pageContext.request.contextPath}/category/list"><i class="fas fa-list"></i> Посмотреть тем. разд.</a>
                 </div>
             </div>
         </li>
@@ -176,7 +170,6 @@
 <script src="/public/vendor/summernote/summernote.js"></script>
 <script src="/public/js/sb-admin-2.js"></script>
 <script src="/public/js/sweetalert2.js"></script>
-<script src="/public/js/formpopup.js"></script>
 <script src="/public/js/textarea.js"></script>
 </body>
 </html>

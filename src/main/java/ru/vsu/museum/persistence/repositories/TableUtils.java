@@ -9,6 +9,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TableUtils {
+    private static Long lastInsertedId;
+
+    public static Long getLastInsertedId()
+    {
+        return lastInsertedId;
+    }
+
     private static String createInsertStatementSQL(Class<?> zclass, String tableName)
     {
         StringBuilder fields = new StringBuilder();
@@ -65,7 +72,7 @@ public class TableUtils {
             object, String tableName) throws SQLException, IllegalAccessException {
         Class<?> zclass = object.getClass();
         String sql = createInsertStatementSQL(zclass, tableName);
-        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
         Field[] fields = zclass.getDeclaredFields();
 
         for (int i = 0; i < fields.length; i++)
@@ -219,6 +226,12 @@ public class TableUtils {
             PreparedStatement preparedStatement = createInsertPreparedStatement(connection, item,
                     tableName);
             int rows = preparedStatement.executeUpdate();
+
+            ResultSet rs = preparedStatement.getGeneratedKeys();
+            if (rs.next()) {
+                lastInsertedId = (long)rs.getInt(1);
+            }
+
             preparedStatement.close();
             PoolManager.releaseConnection(connection);
 

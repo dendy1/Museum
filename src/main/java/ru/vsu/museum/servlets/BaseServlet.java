@@ -12,24 +12,34 @@ public class BaseServlet extends HttpServlet {
         try {
             String method = getMethod(request);
             if (method != null && !"".equals(method)) {
-                callMethod(method, request, response); // вызываем метод
+                callMethod(method, request, response);
             }
         } catch (Exception e) {
-            // log exception
-            request.getRequestDispatcher(WebPages.PAGE_404).forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/views/errors/404.jsp").forward(request, response);
+        }
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        try {
+            String method = getMethod(request);
+            if (method != null && !"".equals(method)) {
+                callMethod(method, request, response);
+            }
+        } catch (Exception e) {
+            request.getRequestDispatcher("/WEB-INF/views/errors/404.jsp").forward(request, response);
         }
     }
 
     private String getMethod(HttpServletRequest request) {
-        String method = request.getPathInfo();  // путь, например "/login"
+        String method = request.getPathInfo();
         if (!"".equals(method)) {
-            return method.substring(1, method.length()); // возвращаем подстроку без "/"
+            return method.substring(1, method.length());
         }
         return null;
     }
 
-    private void callMethod(String method, HttpServletRequest request, HttpServletResponse response) throws  Exception
-    // вот так вот просто вызвать метод с помощью рефлекшн
-            this.getClass().getDeclaredMethod(method, HttpServletRequest.class, HttpServletResponse.class).invoke(this, request, response);
-}
+    private void callMethod(String method, HttpServletRequest request, HttpServletResponse response) throws  Exception {
+        this.getClass().getDeclaredMethod(method, HttpServletRequest.class, HttpServletResponse.class).invoke(this, request, response);
+    }
 }
