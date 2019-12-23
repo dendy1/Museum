@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public class Main {
     public static void main(String[] args) throws SQLException {
-        //DatabaseCreator dbCreator = new DatabaseCreator();
+        DatabaseCreator dbCreator = new DatabaseCreator();
         //dbCreator.CreateDatabases();
 
         MainMenu mainMenu = new MainMenu();

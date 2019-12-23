@@ -1,16 +1,20 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Andrei
-  Date: 22.12.2019
-  Time: 21:10
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Тестовая страница</title>
-</head>
-<body>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="layout" tagdir="/WEB-INF/tags" %>
 
-</body>
-</html>
+<layout:admin>
+    <form method="post" action="/" name="addForm" id="addForm">
+        <div class="container mx-auto">
+
+            <div class="form-group">
+                <label for="categoryName">Наименование</label>
+                <input name="categoryName" id="categoryName" type="text" class="form-control" placeholder="Наименование">
+            </div>
+
+            <div class="form-group">
+                <button type="submit" id="postButton" class="btn btn-success">Добавить</button>
+            </div>
+
+        </div>
+    </form>
+</layout:admin>

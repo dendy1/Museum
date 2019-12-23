@@ -8,13 +8,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5190b7f0-5f24-4b88-b358-aa2a929e17e4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/82e68308-9695-4cac-8b82-a78fe51f5b8d.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/museum.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/museum.mv.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/museum.trace.db" beforeDir="false" afterPath="$PROJECT_DIR$/museum.trace.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/connectionPool/PoolManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/connectionPool/PoolManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/TableUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/TableUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/db/DBRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/persistence/repositories/db/DBRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Museum_war/Museum_war.war" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Museum_war/Museum_war.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Museum_war_exploded/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Museum_war_exploded/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Museum_war_exploded/WEB-INF/classes/META-INF/Museum.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Museum_war_exploded/WEB-INF/classes/META-INF/Museum.kotlin_module" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Museum_war_exploded/WEB-INF/classes/ru/vsu/museum/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Museum_war_exploded/WEB-INF/classes/ru/vsu/museum/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/vsu/museum/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -54,8 +57,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="Jsp File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -93,11 +96,11 @@
     <property name="full.screen.before.presentation.mode" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/WEB-INF/public" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2758112" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -113,6 +116,18 @@
       <recent name="F:\IdeaProjects\Museum\src\main\webapp\WEB-INF" />
       <recent name="F:\IdeaProjects\Museum\src\main\webapp\WEB-INF\views" />
     </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.30">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -220,28 +235,6 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="Running" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              </path>
-            </expand>
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -282,6 +275,10 @@
       <workItem from="1574950908347" duration="3441000" />
       <workItem from="1577031081786" duration="6314000" />
       <workItem from="1577037420311" duration="13478000" />
+      <workItem from="1577090385207" duration="892000" />
+      <workItem from="1577091321174" duration="770000" />
+      <workItem from="1577092139989" duration="1523000" />
+      <workItem from="1577126469714" duration="709000" />
     </task>
     <servers />
   </component>
@@ -300,6 +297,12 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$" />
+      <path value="$PROJECT_DIR$/Museum" />
+    </ignored-roots>
   </component>
   <component name="WindowStateProjectService">
     <state x="1015" y="405" key="#BuildArtifactsBeforeRunChooser" timestamp="1577038381762">
