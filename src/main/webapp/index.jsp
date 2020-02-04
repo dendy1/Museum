@@ -4,7 +4,6 @@
 <layout:admin>
 
     <div class="row">
-
         <div class="col-xl-3 col-md-3 mb-4">
             <div class="card shadow h-100">
                 <div class="card-header py-3">
